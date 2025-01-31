@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmqbin3tshhpl"]
+
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_sjyxp"]
+[ext_resource type="Texture2D" uid="uid://bwoec51f6mei0" path="res://assets/sprites/slime_purple.png" id="2_4rnre"]
+[ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="3_o4b3q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83efp"]
+atlas = ExtResource("2_4rnre")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lhl1"]
+atlas = ExtResource("2_4rnre")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kciyf"]
+atlas = ExtResource("2_4rnre")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qsnu"]
+atlas = ExtResource("2_4rnre")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4td8b"]
+atlas = ExtResource("2_4rnre")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sdxa"]
+atlas = ExtResource("2_4rnre")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnhlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83efp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lhl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kciyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qsnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4td8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sdxa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onql7"]
+size = Vector2(12, 10)
+
+[node name="traffic" type="Node2D"]
+texture_filter = 2
+script = ExtResource("1_sjyxp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nnhlv")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("3_o4b3q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+visible = false
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_onql7")
+
+[node name="RayCastright" type="RayCast2D" parent="."]
+target_position = Vector2(11, 0)
+
+[node name="RayCastleft" type="RayCast2D" parent="."]
+target_position = Vector2(-10, 0)
