@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Music="*res://scenes/music.tscn"
 
+[display]
+
+window/size/viewport_height=655
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="SusGame"
