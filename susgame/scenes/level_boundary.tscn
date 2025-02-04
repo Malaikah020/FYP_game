@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://c8otdv1pu7q34"]
+[gd_scene load_steps=3 format=3 uid="uid://c8otdv1pu7q34"]
 
-[node name="Level_boundary" type="Node"]
+[ext_resource type="Script" path="res://scripts/level_boundary.gd" id="1_ed5uv"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rq82y"]
+a = Vector2(108, -5)
+b = Vector2(111, -1406)
+
+[node name="Level_boundary" type="Area2D"]
+script = ExtResource("1_ed5uv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-89, 642)
+shape = SubResource("SegmentShape2D_rq82y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
