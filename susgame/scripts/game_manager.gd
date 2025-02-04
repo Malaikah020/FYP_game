@@ -12,6 +12,6 @@ var target_points = 10
 func add_point():
 	score += 1
 	print(score)
-	score_label_1.text = str(score)+"/10 coins"
-	score_label_2.text = str(score)+"/10 coins"
-	score_label_3.text = str(score)+"/10 coins"
+	score_label_1.text = str(score)+"/20 coins"
+	score_label_2.text = str(score)+"/20 coins"
+	score_label_3.text = str(score)+"/20 coins"

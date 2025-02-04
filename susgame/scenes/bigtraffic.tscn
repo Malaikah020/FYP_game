@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmqbin3tshhpl"]
+[gd_scene load_steps=6 format=3 uid="uid://bkjic7we4867f"]
 
-[ext_resource type="Script" path="res://scripts/traffic.gd" id="1_1rkqv"]
-[ext_resource type="Texture2D" uid="uid://cwdbs5yowo02v" path="res://assets/sprites/truck-in-pixel-art-style-vector.png" id="2_gy7c8"]
-[ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="3_o4b3q"]
+[ext_resource type="Script" path="res://scripts/traffic.gd" id="1_ypou6"]
+[ext_resource type="Texture2D" uid="uid://dyqr4rrnwdxy1" path="res://assets/sprites/bigtruck.png" id="2_yx24y"]
+[ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="3_75lcc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nnhlv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_gy7c8")
+"texture": ExtResource("2_yx24y")
 }],
 "loop": true,
 "name": &"idle",
@@ -20,18 +20,18 @@ size = Vector2(12, 10)
 
 [node name="traffic" type="Node2D"]
 texture_filter = 2
-script = ExtResource("1_1rkqv")
+script = ExtResource("1_ypou6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-0.500003, -2)
-scale = Vector2(0.05, 0.0489796)
+position = Vector2(-2.84217e-14, -1.19209e-07)
+scale = Vector2(0.0647196, 0.0819611)
 sprite_frames = SubResource("SpriteFrames_nnhlv")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
-[node name="Killzone" parent="." instance=ExtResource("3_o4b3q")]
+[node name="Killzone" parent="." instance=ExtResource("3_75lcc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 visible = false
