@@ -428,7 +428,7 @@ text = "careful!"
 
 [node name="Player" parent="." instance=ExtResource("2_ydy7h")]
 texture_filter = 1
-position = Vector2(2194, 68)
+position = Vector2(868, 70)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Player"]
 position = Vector2(-33, -26)
@@ -604,7 +604,7 @@ position = Vector2(2958, 118)
 position = Vector2(2667, 122)
 
 [node name="traffic_train" parent="traffics" instance=ExtResource("13_wwrcp")]
-position = Vector2(1967, 150)
+position = Vector2(1962, 153)
 
 [node name="Buildings" type="Node" parent="."]
 
@@ -612,7 +612,7 @@ position = Vector2(1967, 150)
 physics_material_override = SubResource("PhysicsMaterial_877ii")
 
 [node name="factorypic" type="Sprite2D" parent="Buildings/StaticBody2D"]
-position = Vector2(3364, -10)
+position = Vector2(3364, -7)
 scale = Vector2(0.153733, 0.167404)
 texture = ExtResource("11_u2fl6")
 
