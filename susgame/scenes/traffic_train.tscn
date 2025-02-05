@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkovbdxk56jeh"]
+
+[ext_resource type="Script" path="res://scripts/traffic_train.gd" id="1_ioqnk"]
+[ext_resource type="Texture2D" uid="uid://cn0xkhcdudbtf" path="res://assets/sprites/collection-train-wagons-flat-design/1.png" id="2_d1tne"]
+[ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="3_m3you"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oaa4"]
+atlas = ExtResource("2_d1tne")
+region = Rect2(0, 0, 476, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2htm"]
+atlas = ExtResource("2_d1tne")
+region = Rect2(10, 0, 475, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnhlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oaa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2htm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onql7"]
+size = Vector2(45, 10)
+
+[node name="traffic_train" type="Node2D"]
+texture_filter = 2
+script = ExtResource("1_ioqnk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -5)
+scale = Vector2(0.187781, 0.279714)
+sprite_frames = SubResource("SpriteFrames_nnhlv")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("3_m3you")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-1, 6)
+scale = Vector2(1.73676, 0.693467)
+shape = SubResource("RectangleShape2D_onql7")
+
+[node name="RayCastright" type="RayCast2D" parent="."]
+scale = Vector2(2.15648, -1.35368)
+target_position = Vector2(16.9041, 0)
+
+[node name="RayCastleft" type="RayCast2D" parent="."]
+scale = Vector2(2.94158, -0.797872)
+target_position = Vector2(-13.9381, 0)

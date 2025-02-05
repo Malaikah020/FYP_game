@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://op046fv65wgr"]
 
 [ext_resource type="Texture2D" uid="uid://bwoec51f6mei0" path="res://assets/sprites/slime_purple.png" id="1_1jyu7"]
-[ext_resource type="Script" path="res://scripts/traffic.gd" id="1_5ylwu"]
+[ext_resource type="Script" path="res://scripts/traffic_train.gd" id="1_7cw63"]
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="2_k6tgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83efp"]
@@ -59,7 +59,7 @@ size = Vector2(12, 10)
 
 [node name="Slime" type="Node2D"]
 texture_filter = 2
-script = ExtResource("1_5ylwu")
+script = ExtResource("1_7cw63")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

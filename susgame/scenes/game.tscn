@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://4bc0jfhxidvk"]
+[gd_scene load_steps=25 format=3 uid="uid://4bc0jfhxidvk"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_mrjci"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="1_rttn3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dmqbin3tshhpl" path="res://scenes/traffic.tscn" id="10_ght0d"]
 [ext_resource type="Texture2D" uid="uid://cm86bqjfpx7ew" path="res://assets/sprites/Screenshot 2025-02-04 at 14.03.43.png" id="11_u2fl6"]
 [ext_resource type="PackedScene" uid="uid://c8otdv1pu7q34" path="res://scenes/level_boundary.tscn" id="12_r7clk"]
+[ext_resource type="PackedScene" uid="uid://dkovbdxk56jeh" path="res://scenes/traffic_train.tscn" id="13_wwrcp"]
 
 [sub_resource type="Animation" id="Animation_sc7s7"]
 resource_name = "Completed_level"
@@ -427,7 +428,7 @@ text = "careful!"
 
 [node name="Player" parent="." instance=ExtResource("2_ydy7h")]
 texture_filter = 1
-position = Vector2(-531, 21)
+position = Vector2(1609, 97)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Player"]
 position = Vector2(-33, -26)
@@ -582,13 +583,28 @@ position = Vector2(552, 37)
 [node name="traffics" type="Node" parent="."]
 
 [node name="traffic" parent="traffics" instance=ExtResource("10_ght0d")]
-position = Vector2(1808, 156)
+position = Vector2(1748, 154)
 
 [node name="traffic2" parent="traffics" instance=ExtResource("10_ght0d")]
 position = Vector2(1593, 105)
 
 [node name="traffic3" parent="traffics" instance=ExtResource("10_ght0d")]
-position = Vector2(1989, 157)
+position = Vector2(1865, 155)
+
+[node name="traffic4" parent="traffics" instance=ExtResource("10_ght0d")]
+position = Vector2(3228, 118)
+
+[node name="traffic5" parent="traffics" instance=ExtResource("10_ght0d")]
+position = Vector2(3095, 120)
+
+[node name="traffic6" parent="traffics" instance=ExtResource("10_ght0d")]
+position = Vector2(2958, 118)
+
+[node name="traffic7" parent="traffics" instance=ExtResource("10_ght0d")]
+position = Vector2(2667, 122)
+
+[node name="traffic_train" parent="traffics" instance=ExtResource("13_wwrcp")]
+position = Vector2(1967, 150)
 
 [node name="Buildings" type="Node" parent="."]
 
@@ -596,7 +612,7 @@ position = Vector2(1989, 157)
 physics_material_override = SubResource("PhysicsMaterial_877ii")
 
 [node name="factorypic" type="Sprite2D" parent="Buildings/StaticBody2D"]
-position = Vector2(1972, 135)
+position = Vector2(3364, -10)
 scale = Vector2(0.153733, 0.167404)
 texture = ExtResource("11_u2fl6")
 
