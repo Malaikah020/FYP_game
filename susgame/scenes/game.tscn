@@ -428,7 +428,7 @@ text = "careful!"
 
 [node name="Player" parent="." instance=ExtResource("2_ydy7h")]
 texture_filter = 1
-position = Vector2(1609, 97)
+position = Vector2(2194, 68)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Player"]
 position = Vector2(-33, -26)
@@ -623,5 +623,9 @@ position = Vector2(965, 55)
 
 [node name="bound2to3" parent="bounds" instance=ExtResource("12_r7clk")]
 position = Vector2(3381, 25)
+
+[node name="traffic_train" parent="." instance=ExtResource("13_wwrcp")]
+position = Vector2(2219, 123)
+scale = Vector2(0.922496, 0.850664)
 
 [connection signal="body_entered" from="bounds/bound1to2" to="GameManager" method="_on_level_boundary_body_entered"]

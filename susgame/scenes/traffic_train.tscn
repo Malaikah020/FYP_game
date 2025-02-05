@@ -27,7 +27,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onql7"]
-size = Vector2(45, 10)
+size = Vector2(43.7596, 10.7681)
 
 [node name="traffic_train" type="Node2D"]
 texture_filter = 2
@@ -35,24 +35,26 @@ script = ExtResource("1_ioqnk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -5)
+position = Vector2(1, -11)
 scale = Vector2(0.187781, 0.279714)
 sprite_frames = SubResource("SpriteFrames_nnhlv")
 animation = &"idle"
 autoplay = "idle"
-flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("3_m3you")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-1, 6)
+visible = false
+position = Vector2(9.53674e-07, -1)
 scale = Vector2(1.73676, 0.693467)
 shape = SubResource("RectangleShape2D_onql7")
 
 [node name="RayCastright" type="RayCast2D" parent="."]
+visible = false
 scale = Vector2(2.15648, -1.35368)
-target_position = Vector2(16.9041, 0)
+target_position = Vector2(19.9399, 0)
 
 [node name="RayCastleft" type="RayCast2D" parent="."]
+visible = false
 scale = Vector2(2.94158, -0.797872)
-target_position = Vector2(-13.9381, 0)
+target_position = Vector2(-15.9778, 0)
