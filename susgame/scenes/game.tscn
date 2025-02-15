@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://b21tkvrwanerl" path="res://scenes/player.tscn" id="2_ydy7h"]
 [ext_resource type="PackedScene" uid="uid://b73esb51fg1oh" path="res://scenes/platform.tscn" id="3_n2y5q"]
 [ext_resource type="PackedScene" uid="uid://crab3oltp05ip" path="res://scenes/coin.tscn" id="4_40i1v"]
+[ext_resource type="Texture2D" uid="uid://b07fcpx8ejuf4" path="res://assets/sprites/fact_back.png" id="5_2cdjd"]
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="5_jofxp"]
 [ext_resource type="PackedScene" uid="uid://op046fv65wgr" path="res://scenes/Slime.tscn" id="6_7bycm"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_b2ru8"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_wd84m"]
 [ext_resource type="PackedScene" uid="uid://dmqbin3tshhpl" path="res://scenes/traffic.tscn" id="10_ght0d"]
 [ext_resource type="Texture2D" uid="uid://cm86bqjfpx7ew" path="res://assets/sprites/Screenshot 2025-02-04 at 14.03.43.png" id="11_u2fl6"]
-[ext_resource type="PackedScene" uid="uid://c8otdv1pu7q34" path="res://scenes/level_boundary.tscn" id="12_r7clk"]
 [ext_resource type="PackedScene" uid="uid://dkovbdxk56jeh" path="res://scenes/traffic_train.tscn" id="13_wwrcp"]
 
 [sub_resource type="Animation" id="Animation_sc7s7"]
@@ -297,10 +297,10 @@ libraries = {
 
 [node name="Label" type="Label" parent="Labels"]
 texture_filter = 1
-offset_left = -714.0
-offset_top = -79.0
-offset_right = -455.0
-offset_bottom = 84.0
+offset_left = -693.0
+offset_top = -62.0
+offset_right = -434.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_wd84m")
 theme_override_font_sizes/font_size = 8
@@ -332,9 +332,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="Labels"]
 texture_filter = 1
-offset_left = -160.0
+offset_left = -134.0
 offset_top = -39.0
-offset_right = 89.0
+offset_right = 115.0
 offset_bottom = 50.0
 theme_override_colors/font_color = Color(0.0588235, 0.968627, 0.0235294, 1)
 theme_override_fonts/font = ExtResource("7_wd84m")
@@ -428,7 +428,7 @@ text = "careful!"
 
 [node name="Player" parent="." instance=ExtResource("2_ydy7h")]
 texture_filter = 1
-position = Vector2(868, 70)
+position = Vector2(-521, 32)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Player"]
 position = Vector2(-33, -26)
@@ -440,14 +440,37 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Label" type="Label" parent="Player"]
-offset_left = -1.0
-offset_top = -71.0
-offset_right = 93.0
-offset_bottom = -22.0
+offset_left = 23.0
+offset_top = -108.0
+offset_right = 117.0
+offset_bottom = -59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_wd84m")
 theme_override_font_sizes/font_size = 8
 text = "Coins: 0/200
 Level: 1"
+
+[node name="FactBack" type="Sprite2D" parent="Player"]
+position = Vector2(3.00001, 67)
+scale = Vector2(1.27222, 0.377778)
+texture = ExtResource("5_2cdjd")
+
+[node name="fact_label" type="RichTextLabel" parent="Player"]
+offset_left = -170.0
+offset_top = 51.0
+offset_right = 175.0
+offset_bottom = 94.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_wd84m")
+theme_override_fonts/bold_font = ExtResource("7_wd84m")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 16
+text = "fact:"
+fit_content = true
+
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 10.0
+one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qd5d1")
@@ -595,6 +618,7 @@ position = Vector2(2679, 33)
 position = Vector2(-695, 85)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone5"]
+position = Vector2(-137, 120)
 shape = SubResource("SegmentShape2D_b0yoy")
 
 [node name="Killzone2" parent="Killzones" instance=ExtResource("5_jofxp")]
@@ -684,10 +708,4 @@ texture = ExtResource("11_u2fl6")
 
 [node name="bounds" type="Node" parent="."]
 
-[node name="bound1to2" parent="bounds" instance=ExtResource("12_r7clk")]
-position = Vector2(952, 56)
-
-[node name="bound2to3" parent="bounds" instance=ExtResource("12_r7clk")]
-position = Vector2(3381, 25)
-
-[connection signal="body_entered" from="bounds/bound1to2" to="GameManager" method="_on_level_boundary_body_entered"]
+[connection signal="timeout" from="Player/Timer" to="GameManager" method="_on_timer_timeout"]

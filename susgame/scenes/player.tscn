@@ -6,11 +6,16 @@
 script/source = "extends CharacterBody2D
 
 
-const SPEED = 100.0
+var SPEED = 100.0
 const JUMP_VELOCITY = -300.0
+var is_paused = false  # Track if movement is paused
+
 
 
 func _physics_process(delta: float) -> void:
+	if is_paused:
+		SPEED = 0 
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -28,6 +33,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+func pause_movement():
+	print(\"Player movement paused\")
+	is_paused = true
+
+func resume_movement():
+	print(\"Player movement resumed\")
+	is_paused = false
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14mlr"]
