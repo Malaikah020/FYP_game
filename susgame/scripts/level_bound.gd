@@ -6,3 +6,4 @@ func _on_body_entered(body):
 	#if body is CharacterBody2D:
 	print("Player reached level boundary!")
 	game_manager.add_level()
+	queue_free()

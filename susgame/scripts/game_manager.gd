@@ -6,6 +6,8 @@ var current_level = 1
 var max_levels = 3  
 var target_points = 20  
 
+var level_scores = {}  # Dictionary to store score per level
+
 @onready var mainlabel: Label = $"../Player/Label"
 @onready var score_label_1: Label = $score_label1
 @onready var score_label_2: Label = $score_label2
@@ -26,6 +28,7 @@ var lv1_facts = [
 
 func _ready():
 	print("GameManager Loaded")
+	print("current lv",current_level)
 	
 	if fact_label == null or fact_back == null or fact_timer == null:
 		print("ERROR: Some nodes are missing!")
@@ -34,10 +37,13 @@ func _ready():
 	fact_back.visible = false
 	fact_timer.timeout.connect(_on_timer_timeout) 
 
+	# Initialize score for level 1
+	level_scores[current_level] = 0
+
 # Show the next fact
 func show_next_fact():
 	if fact_index >= lv1_facts.size():
-		fact_index = 0  # Reset index when all facts are shown
+		fact_index = 0  
 	
 	print("Displaying fact:", lv1_facts[fact_index])
 
@@ -51,7 +57,9 @@ func show_next_fact():
 # Add points when collecting coins
 func add_point():
 	score += 1
-	print("Score:", score)
+	level_scores[current_level] = score  # Save score for this level
+
+	print("Score:", score, "Level:", current_level)
 
 	score_label_1.text = str(score) + "/" + str(target_points) + " coins"
 	score_label_2.text = score_label_1.text
@@ -65,11 +73,31 @@ func add_point():
 # Increase the level when reaching the boundary
 func add_level():
 	if current_level < max_levels:
+		level_scores[current_level] = score  # Save current level's score
+
 		current_level += 1  
 		print("Level Up! Now entering Level:", current_level)
+
+		# If the new level has no score yet, start from 0
+		score = level_scores.get(current_level, 0)
+
 		mainlabel.text = "Points: " + str(score) + " Level: " + str(current_level)
 	else:
 		print("Maximum level reached!")
+
+# Handle player death
+func player_died():
+	print("Player died! Restoring last level score...")
+	
+	# Reset to last level's score
+	score = level_scores.get(current_level, 0)
+
+	print("Restored Score:", score, "Level:", current_level)
+	
+	score_label_1.text = str(score) + "/" + str(target_points) + " coins"
+	score_label_2.text = score_label_1.text
+	score_label_3.text = score_label_1.text
+	mainlabel.text = "Points: " + str(score) + " Level: " + str(current_level)
 
 # Hide fact after timer ends
 func _on_timer_timeout():

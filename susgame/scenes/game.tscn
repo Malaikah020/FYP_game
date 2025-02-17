@@ -429,13 +429,13 @@ text = "careful!"
 
 [node name="Player" parent="." instance=ExtResource("2_ydy7h")]
 texture_filter = 1
-position = Vector2(874, 65)
+position = Vector2(867, 79)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Player"]
 position = Vector2(-33, -26)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -4)
+position = Vector2(0, -5)
 zoom = Vector2(3, 3)
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -710,10 +710,14 @@ texture = ExtResource("11_u2fl6")
 [node name="Bounds" type="Node" parent="."]
 
 [node name="level_1" parent="Bounds" instance=ExtResource("14_8pfoj")]
-position = Vector2(919, 90)
+position = Vector2(921, 77)
+collision_layer = 3
+collision_mask = 3
 
 [node name="level_2" parent="Bounds" instance=ExtResource("14_8pfoj")]
-position = Vector2(3303, 17)
+position = Vector2(3303, 12)
+collision_layer = 3
+collision_mask = 3
 
 [connection signal="timeout" from="Player/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Bounds/level_1" to="Bounds/level_1" method="_on_body_entered"]
