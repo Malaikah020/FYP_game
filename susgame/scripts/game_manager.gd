@@ -2,8 +2,9 @@ extends Node
 
 var score = 0
 var fact_index = 0
-var level = -1
-var target_points = 20
+var current_level = 1  
+var max_levels = 3  
+var target_points = 20  
 
 @onready var mainlabel: Label = $"../Player/Label"
 @onready var score_label_1: Label = $score_label1
@@ -15,9 +16,6 @@ var target_points = 20
 @onready var fact_label: RichTextLabel = $"../Player/fact_label"
 @onready var fact_timer: Timer = $"../Player/Timer"
 
-#@onready var player: CharacterBody2D = $"../Player"
-
-
 var lv1_facts = [
 	"Fact: Between 2015 and 2020, the demand for lithium-ion batteries has tripled.",
 	"Fact: Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
@@ -26,67 +24,56 @@ var lv1_facts = [
 	"Fact: In some areas of Chile, lithium mining has depleted groundwater levels by as much as one meter per year."
 ]
 
-# Ensure labels and timer exist
 func _ready():
 	print("GameManager Loaded")
-	print("Fact Label:", fact_label)
-	print("Fact Back:", fact_back)
-	print("Fact Timer:", fact_timer)
 	
-
 	if fact_label == null or fact_back == null or fact_timer == null:
 		print("ERROR: Some nodes are missing!")
-
-	# Ensure labels are initially hidden
+	
 	fact_label.visible = false
 	fact_back.visible = false
 	fact_timer.timeout.connect(_on_timer_timeout) 
 
-# Show the next fact in sequence
+# Show the next fact
 func show_next_fact():
 	if fact_index >= lv1_facts.size():
-		fact_index = 0  # Reset fact index when reaching the end
-
-	print("Displaying fact:", lv1_facts[fact_index])  # Debugging output
+		fact_index = 0  # Reset index when all facts are shown
+	
+	print("Displaying fact:", lv1_facts[fact_index])
 
 	fact_label.text = lv1_facts[fact_index]
 	fact_label.visible = true
 	fact_back.visible = true
 	
-	# PAUSE the game
-	#Engine.time_scale = 0
-	#player.pause_movement() 
-	
-	print("Starting timer for 10 seconds...")
-	fact_timer.start(10)# Ensure the timer actually starts
-	print("Timer started: ", fact_timer.time_left)  # Start timer to hide fact after 10 seconds
-	fact_index += 1  # Move to next fact for next cycle
+	fact_timer.start(10)  
+	fact_index += 1  
 
+# Add points when collecting coins
 func add_point():
 	score += 1
 	print("Score:", score)
 
-	# Update UI
 	score_label_1.text = str(score) + "/" + str(target_points) + " coins"
 	score_label_2.text = score_label_1.text
 	score_label_3.text = score_label_1.text
-	mainlabel.text = "Points: " + str(score) + " Level: " + str(level)
+	mainlabel.text = "Points: " + str(score) + " Level: " + str(current_level)
 
-	# Show a new fact every 3 coins collected
 	if score % 3 == 0:
 		print("Collected 3 coins, showing fact...")
 		show_next_fact()
 
+# Increase the level when reaching the boundary
 func add_level():
-	level += 1
-	print("Level:", level)
-	mainlabel.text = "Points: " + str(score) + " Level: " + str(level)
+	if current_level < max_levels:
+		current_level += 1  
+		print("Level Up! Now entering Level:", current_level)
+		mainlabel.text = "Points: " + str(score) + " Level: " + str(current_level)
+	else:
+		print("Maximum level reached!")
 
+# Hide fact after timer ends
 func _on_timer_timeout():
-	print("TIMER TRIGGERED! Resuming game...")  # Debugging
+	print("TIMER TRIGGERED! Hiding fact...")  
 	
 	fact_label.visible = false
 	fact_back.visible = false
-	
-	#Engine.time_scale = 1
-	#player.resume_movement()  # Resume only the player's movement
