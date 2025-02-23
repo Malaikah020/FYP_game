@@ -1,6 +1,7 @@
 extends Node
 
-var score = 0
+var score = 0  # Current level score
+var total_score = 0  # Total score across all levels
 var fact_index = 0
 var current_level = 1  
 var max_levels = 3  
@@ -28,10 +29,12 @@ var lv1_facts = [
 
 func _ready():
 	print("GameManager Loaded")
-	print("current lv",current_level)
+	print("current lv", current_level)
 	
 	if fact_label == null or fact_back == null or fact_timer == null:
 		print("ERROR: Some nodes are missing!")
+	mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
+
 	
 	fact_label.visible = false
 	fact_back.visible = false
@@ -57,14 +60,17 @@ func show_next_fact():
 # Add points when collecting coins
 func add_point():
 	score += 1
+	total_score += 1  # Increase total score
 	level_scores[current_level] = score  # Save score for this level
 
-	print("Score:", score, "Level:", current_level)
+	print("Total Score:", total_score, "\n Current Level:", current_level, "\n Level Score:", score)
 
 	score_label_1.text = str(score) + "/" + str(target_points) + " coins"
 	score_label_2.text = score_label_1.text
 	score_label_3.text = score_label_1.text
-	mainlabel.text = "Points: " + str(score) + " Level: " + str(current_level)
+
+	# Update main label with total score and level score
+	mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
 
 	if score % 3 == 0:
 		print("Collected 3 coins, showing fact...")
@@ -81,10 +87,11 @@ func add_level():
 		# If the new level has no score yet, start from 0
 		score = level_scores.get(current_level, 0)
 
-		mainlabel.text = "Points: " + str(score) + " Level: " + str(current_level)
+		# Update main label
+		mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
 	else:
 		print("Maximum level reached!")
-
+#hahah
 # Handle player death
 func player_died():
 	print("Player died! Restoring last level score...")
@@ -97,7 +104,9 @@ func player_died():
 	score_label_1.text = str(score) + "/" + str(target_points) + " coins"
 	score_label_2.text = score_label_1.text
 	score_label_3.text = score_label_1.text
-	mainlabel.text = "Points: " + str(score) + " Level: " + str(current_level)
+	
+	# Update main label
+	mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
 
 # Hide fact after timer ends
 func _on_timer_timeout():
