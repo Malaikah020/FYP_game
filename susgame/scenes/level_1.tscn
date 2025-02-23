@@ -478,10 +478,8 @@ position = Vector2(1036, 15)
 [node name="level_1" parent="Bounds" instance=ExtResource("14_mwh5y")]
 position = Vector2(1435, 52)
 scale = Vector2(-2.59477, 3.68236)
-collision_layer = 3
-collision_mask = 3
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(-468, 16)
+position = Vector2(855, 31)
 
 [connection signal="body_entered" from="Bounds/level_1" to="Bounds/level_1" method="_on_body_entered"]

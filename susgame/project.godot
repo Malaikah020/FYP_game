@@ -18,9 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
-Music="res://scenes/music.tscn"
+Music="*res://scenes/music.tscn"
 Player="*res://scenes/player.tscn"
 Ui="*res://scenes/UI.tscn"
+LevelBound="*res://scenes/level_bound.tscn"
 
 [display]
 
