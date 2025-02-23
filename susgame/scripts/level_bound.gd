@@ -1,9 +1,6 @@
 extends Area2D
-
-@onready var game_manager = %GameManager  
+@onready var game_manager = get_node("/root/GameManager")  # Reference to GameManager node
 
 func _on_body_entered(body):
-	#if body is CharacterBody2D:
-	print("Player reached level boundary!")
-	game_manager.add_level()
-	queue_free()
+	game_manager.reset_all()
+	game_manager.next_level()

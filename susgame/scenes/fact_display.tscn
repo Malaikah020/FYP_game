@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx2r0qttrlcqd"]
+
+[ext_resource type="Script" path="res://scripts/fact_display.gd" id="1_0prsq"]
+[ext_resource type="Texture2D" uid="uid://b07fcpx8ejuf4" path="res://assets/sprites/fact_back.png" id="1_4aqra"]
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_w1qjf"]
+
+[node name="fact_display" type="CanvasLayer"]
+script = ExtResource("1_0prsq")
+
+[node name="FactBack" type="Sprite2D" parent="."]
+position = Vector2(3.00001, 67)
+scale = Vector2(1.27222, 0.377778)
+texture = ExtResource("1_4aqra")
+
+[node name="fact_label" type="RichTextLabel" parent="."]
+offset_left = -170.0
+offset_top = 51.0
+offset_right = 175.0
+offset_bottom = 94.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_w1qjf")
+theme_override_fonts/bold_font = ExtResource("2_w1qjf")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 16
+text = "fact:"
+fit_content = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

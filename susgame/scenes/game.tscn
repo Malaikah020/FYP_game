@@ -51,7 +51,7 @@ _data = {
 "RESET": SubResource("Animation_gqk3h")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nrdno"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cjjo"]
 texture = ExtResource("1_rttn3")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -215,7 +215,7 @@ texture = ExtResource("1_rttn3")
 
 [sub_resource type="TileSet" id="TileSet_qd5d1"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nrdno")
+sources/0 = SubResource("TileSetAtlasSource_0cjjo")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_b0yoy"]
 a = Vector2(-45, -37)
@@ -255,6 +255,7 @@ theme_override_colors/font_color = Color(0.952941, 0.027451, 0.0823529, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "0/20"
+metadata/_edit_use_anchors_ = true
 
 [node name="score_label2" type="Label" parent="GameManager"]
 texture_filter = 1
@@ -266,6 +267,7 @@ theme_override_colors/font_color = Color(0.952941, 0.027451, 0.0823529, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "0/20"
+metadata/_edit_use_anchors_ = true
 
 [node name="score_label3" type="Label" parent="GameManager"]
 texture_filter = 1
@@ -277,6 +279,7 @@ theme_override_colors/font_color = Color(0.952941, 0.027451, 0.0823529, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "0/20"
+metadata/_edit_use_anchors_ = true
 
 [node name="level_lable" type="Label" parent="GameManager"]
 texture_filter = 1
@@ -287,6 +290,7 @@ offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("7_wd84m")
 theme_override_font_sizes/font_size = 8
 text = "Level 1: complete "
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameManager/level_lable"]
 active = false
@@ -382,6 +386,7 @@ theme_override_colors/font_color = Color(0.13668, 0.108667, 0.754708, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "Let's go"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label7" type="Label" parent="Labels"]
 texture_filter = 1
@@ -393,6 +398,7 @@ theme_override_colors/font_color = Color(0.13668, 0.108667, 0.754708, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "Doing well!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label9" type="Label" parent="Labels"]
 texture_filter = 1
@@ -404,6 +410,7 @@ theme_override_colors/font_color = Color(0.13668, 0.108667, 0.754708, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "watch out!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label10" type="Label" parent="Labels"]
 texture_filter = 1
@@ -415,6 +422,7 @@ theme_override_colors/font_color = Color(0.13668, 0.108667, 0.754708, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "Well Done!!!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label8" type="Label" parent="Labels"]
 texture_filter = 1
@@ -426,37 +434,39 @@ theme_override_colors/font_color = Color(0.13668, 0.108667, 0.754708, 1)
 theme_override_fonts/font = ExtResource("7_b2ru8")
 theme_override_font_sizes/font_size = 8
 text = "careful!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_ydy7h")]
 texture_filter = 1
 position = Vector2(867, 79)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Player"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Player"]
 position = Vector2(-33, -26)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(0, -5)
 zoom = Vector2(3, 3)
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="Label" type="Label" parent="Player"]
-offset_left = 23.0
-offset_top = -108.0
-offset_right = 117.0
-offset_bottom = -59.0
+[node name="Label2" type="Label" parent="Player"]
+offset_left = -74.0
+offset_top = -75.0
+offset_right = 20.0
+offset_bottom = -26.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_wd84m")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 5
 text = "Coins: 0/200
 Level: 1"
+metadata/_edit_use_anchors_ = true
 
-[node name="FactBack" type="Sprite2D" parent="Player"]
+[node name="FactBack2" type="Sprite2D" parent="Player"]
 position = Vector2(3.00001, 67)
 scale = Vector2(1.27222, 0.377778)
 texture = ExtResource("5_2cdjd")
 
-[node name="fact_label" type="RichTextLabel" parent="Player"]
+[node name="fact_label2" type="RichTextLabel" parent="Player"]
 offset_left = -170.0
 offset_top = 51.0
 offset_right = 175.0
@@ -468,8 +478,9 @@ theme_override_font_sizes/normal_font_size = 8
 theme_override_font_sizes/bold_font_size = 16
 text = "fact:"
 fit_content = true
+metadata/_edit_use_anchors_ = true
 
-[node name="Timer" type="Timer" parent="Player"]
+[node name="Timer2" type="Timer" parent="Player"]
 wait_time = 10.0
 one_shot = true
 
@@ -719,5 +730,6 @@ position = Vector2(3303, 12)
 collision_layer = 3
 collision_mask = 3
 
-[connection signal="timeout" from="Player/Timer" to="GameManager" method="_on_timer_timeout"]
+[node name="level_1" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="Bounds/level_1" to="Bounds/level_1" method="_on_body_entered"]

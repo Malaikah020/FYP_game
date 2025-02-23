@@ -1,29 +1,41 @@
-[gd_scene load_steps=26 format=3 uid="uid://b21tkvrwanerl"]
+[gd_scene load_steps=29 format=3 uid="uid://b21tkvrwanerl"]
 
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="1_q2n4d"]
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_m6f8g"]
+[ext_resource type="Texture2D" uid="uid://b07fcpx8ejuf4" path="res://assets/sprites/fact_back.png" id="3_g3big"]
+[ext_resource type="PackedScene" uid="uid://bvr77k8vdmsrt" path="res://scenes/UI.tscn" id="4_gjtsc"]
 
 [sub_resource type="GDScript" id="GDScript_fw4et"]
 script/source = "extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+const AIR_CONTROL = 0.5  # Allows slight movement in air
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var game_manager: Node = %GameManager
+
+# Get global gravity setting
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
 func _physics_process(delta: float) -> void:
+	# Apply gravity when not on floor
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y += gravity * delta
 
+	# Jumping
 	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	# Get movement direction (-1 = left, 1 = right)
 	var direction := Input.get_axis(\"move_left\", \"move_right\")
-	
+
+	# Flip sprite based on direction
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
 	elif direction < 0:
 		animated_sprite_2d.flip_h = true
-		
+
+	# Play animations
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite_2d.play(\"idle\")
@@ -32,17 +44,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite_2d.play(\"jump\")
 
+	# Movement
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = lerp(velocity.x, direction * SPEED, AIR_CONTROL if not is_on_floor() else 1.0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-# Function to handle player death
-func die():
-	print(\"Player died!\")
-	game_manager.player_died()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14mlr"]
@@ -215,7 +223,8 @@ radius = 5.09902
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 9
-collision_layer = 2
+collision_layer = 3
+collision_mask = 3
 script = SubResource("GDScript_fw4et")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -226,5 +235,47 @@ animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_m1lt8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-33, -26)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -5)
+zoom = Vector2(3, 3)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="FactBack" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3.00001, 67)
+scale = Vector2(1.27222, 0.377778)
+texture = ExtResource("3_g3big")
+
+[node name="fact_label" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -170.0
+offset_top = 51.0
+offset_right = 175.0
+offset_bottom = 94.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_m6f8g")
+theme_override_fonts/bold_font = ExtResource("2_m6f8g")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 16
+text = "fact:"
+fit_content = true
+scroll_active = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="UI" parent="." instance=ExtResource("4_gjtsc")]
+offset_left = 104.0
+offset_top = -106.0
+offset_right = 223.0
+offset_bottom = -60.0
+scale = Vector2(0.550522, 0.427756)

@@ -1,116 +1,217 @@
 extends Node
 
-var score = 0  # Current level score
-var total_score = 0  # Total score across all levels
-var fact_index = 0
-var current_level = 1  
-var max_levels = 3  
-var target_points = 20  
+# Global Game Variables
+var score: int = 0
+var current_level: int = 1
+var max_levels: int = 2  # Total number of levels
+var fact_index: int = 0  # To track which fact is being shown
 
+# Level scene paths (adjust paths based on your project structure)
+var levels := [
+	"res://scenes/Level_1.tscn",
+	"res://scenes/Level_2.tscn",
+	#"res://scenes/Level3.tscn"
+]
+
+# Facts for each level
+var lv1_facts = [
+	"Between 2015 and 2020, the demand for lithium-ion batteries has tripled.",
+	"Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
+	"The mining of lithium consumes approximately 500,000 tons of water per ton of lithium extracted.",
+	"70% of the world’s lithium reserves are found in Bolivia, Chile, and Argentina. This has become known as the 'lithium triangle'.",
+	"In some areas of Chile, lithium mining has depleted groundwater levels by as much as one meter per year.",
+	"Kaunda, R. B. (2020). Potential environmental impacts of lithium mining. ",
+	"Cobalt mining can lead to substances such as copper, uranium, cobalt, and arsenic, poisoning local food and water supplies.",
+	"Cobalt mining in the Democratic Republic of Congo has led to the habitat destruction of several local species such as chimpanzees, elephants, and the critically endangered Eastern Lowland Gorilla. "
+]
+
+
+var lv2_facts = [
+	"Environmental Concerns: The extraction, processing, and shipping of metals and minerals can have environmental impacts, including habitat destruction, water pollution, and carbon emissions. Balancing economic needs with sustainable practices is an ongoing challenge.",
+	"Shipping Transportation: Bulk Carriers, Container ships account for 3% of the world's total global emissions.",
+	"13.5% of all greenhouse gas emissions come from transport, including shipping.",
+	"71% of all greenhouse gas emissions from transport are from land vehicles like trucks and railways.",
+	"14.4% of all greenhouse gas emissions from transport come from air travel.",
+	"Underwater noise has contributed to half of all non-indigenous species in the European seas since 1949.",
+	"Marine mammals use underwater clicks, whistles, and songs to communicate with their young, search for food, find mates, and avoid dangers.",
+	"Of the more than 100 species systematically reviewed worldwide, every one of them shows negative responses to underwater noise."
+]
+
+
+var lv3_facts = [
+	"Since 2007, smartphone manufacturing has required up to 968TWh of electricity. This is about the same amount of electricity used by the nation of India in an entire year.",
+	"Greenpeace Calls for Sustainable Smartphone Manufacturing. ICT Monitor Worldwide",
+	"Up to 3% of the world's energy demand in 2015 came from communication technology such as smartphones and computers.",
+	"Carbon emissions from the production of iPhone hardware has increased by 39% from the iPhone 3GS to the iPhone 11.",
+	"In 2007, the production of information and communications technology accounted for 1.3% of global gas emissions.",
+	"Studies show that the total carbon emissions of a single smartphone is estimated to 50kg CO2e.",
+	"Carbon footprint of electronic devices is a growing concern in the tech industry. "
+	# NEED 1 more
+]
+
+var lv4_facts = [
+	# Add facts for planned obsolescence and user lifetime here
+	"Planned obsolescence refers to the practice of designing products with an artificially limited useful life so that they become obsolete after a certain period, forcing consumers to replace them.",
+	"This often results in increased electronic waste and contributes to environmental degradation due to excessive consumption and disposal of goods.",
+	"Many companies are adopting practices that encourage consumers to replace their products frequently, even when the devices may still be functioning well.",
+	"The rise of technology and frequent product updates contributes to a cycle where old devices become outdated quickly, often unnecessarily."
+	# NEED 8
+]
+
+var lv5_facts = [
+	"According to Waste Electrical and Electronic Equipment (WEEE), in 2024, Ireland only recycled 30% of 11 million small devices bought.",
+	"In 2021, Ireland collected 14.67 kilos of electronic equipment per person, which is the 5th highest in Europe, above the European average of 11.",
+	"To uphold recycling and repair practices, a proposal in 2020 introduced the right to repair and improve reusability, updated seller requirements to repair unless cheaper to replace, and common chargers in 2024.",
+	"Proper recycling of e-waste prevents environmental pollution such as toxic substances (lead, mercury, cadmium) in water and soil and health issues for humans and wildlife.",
+	"Ireland is actively promoting proper electronic waste recycling and repair practices, aiming to reduce the environmental impact of electronics."
+	# NEED 3
+]
+
+
+# Dictionaries to store facts and scores
 var level_scores = {}  # Dictionary to store score per level
-
-@onready var mainlabel: Label = $"../Player/Label"
-@onready var score_label_1: Label = $score_label1
-@onready var score_label_2: Label = $score_label2
-@onready var score_label_3: Label = $score_label3
-@onready var label_11: Label = $"../Labels/Label11"
+var level_facts = {}   # Dictionary to store facts per level
 
 @onready var fact_back: Sprite2D = $"../Player/FactBack"
 @onready var fact_label: RichTextLabel = $"../Player/fact_label"
-@onready var fact_timer: Timer = $"../Player/Timer"
+@onready var fact_timer: Timer = $"../Player/Timer"  # Make sure this is the correct path
+@onready var player: CharacterBody2D = $"../Player"
+@onready var score_label: Label = $"../Player/UI/ScoreLabel"
+@onready var level_label: Label = $"../Player/UI/LevelLabel"
 
-var lv1_facts = [
-	"Fact: Between 2015 and 2020, the demand for lithium-ion batteries has tripled.",
-	"Fact: Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
-	"Fact: The mining of lithium consumes approximately 500,000 tons of water per ton of lithium extracted.",
-	"Fact: 70% of the world’s lithium reserves are found in Bolivia, Chile, and Argentina. This has become known as the 'lithium triangle'.",
-	"Fact: In some areas of Chile, lithium mining has depleted groundwater levels by as much as one meter per year."
-]
 
 func _ready():
-	print("GameManager Loaded")
-	print("current lv", current_level)
-	
-	if fact_label == null or fact_back == null or fact_timer == null:
-		print("ERROR: Some nodes are missing!")
-	mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
+	print("GameManager Initialized")
 
-	
-	fact_label.visible = false
-	fact_back.visible = false
-	fact_timer.timeout.connect(_on_timer_timeout) 
+	# Debugging: Check if fact_timer is valid
+	if fact_timer != null:
+		print("fact_timer is initialized")
+		fact_timer.timeout.connect(hide_fact)  # Connect the fact hiding after timeout
+	else:
+		print("fact_timer is null!")
 
-	# Initialize score for level 1
+	hide_fact()  # Hide fact initially
+
+	# Initialize facts for each level
+	level_facts[1] = lv1_facts
+	level_facts[2] = lv2_facts
+	level_facts[3] = lv3_facts
+	level_facts[4] = lv4_facts
+	level_facts[5] = lv5_facts
+
+	# Initialize score storage for each level
 	level_scores[current_level] = 0
 
-# Show the next fact
-func show_next_fact():
-	if fact_index >= lv1_facts.size():
-		fact_index = 0  
-	
-	print("Displaying fact:", lv1_facts[fact_index])
+	# Debugging: Check if the ScoreLabel is valid
+	if score_label == null:
+		print("ScoreLabel not found! Ensure it's in the correct path.")
+	else:
+		print("ScoreLabel is ready!")
 
-	fact_label.text = lv1_facts[fact_index]
-	fact_label.visible = true
-	fact_back.visible = true
-	
-	fact_timer.start(10)  
-	fact_index += 1  
+	# Set the initial score on the UI
+	update_score_ui()
 
-# Add points when collecting coins
-func add_point():
-	score += 1
-	total_score += 1  # Increase total score
-	level_scores[current_level] = score  # Save score for this level
+# Increase score when collecting coins
+func add_score(amount: int):
+	score += amount
+	level_scores[current_level] = score  # Save score for the current level
+	print("Score: ", score)
 
-	print("Total Score:", total_score, "\n Current Level:", current_level, "\n Level Score:", score)
+	# Update the score label in the UI
+	update_score_ui()
 
-	score_label_1.text = str(score) + "/" + str(target_points) + " coins"
-	score_label_2.text = score_label_1.text
-	score_label_3.text = score_label_1.text
-
-	# Update main label with total score and level score
-	mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
-
-	if score % 3 == 0:
-		print("Collected 3 coins, showing fact...")
+	# Display fact if score is divisible by 3
+	if score % 4 == 0:
 		show_next_fact()
 
-# Increase the level when reaching the boundary
-func add_level():
+# Function to update the score on the UI
+func update_score_ui():
+	if score_label != null:
+		score_label.text = "Score: " + str(score)
+	else:
+		print("Error: ScoreLabel is null!")
+func update_level_ui():
+	if level_label != null:
+		level_label.text = "Level: " + str(current_level)
+	else:
+		print("Error: ScoreLabel is null!")
+
+# Show the next fact for the current level
+func show_next_fact():
+	var facts = level_facts.get(current_level, [])
+	if facts.size() == 0:
+		print("No facts available for this level.")
+		return
+
+	if fact_index >= facts.size():
+		fact_index = 0  # Reset the fact index if we reached the end
+
+	print("Displaying fact:", facts[fact_index])
+
+	# Check if fact_label and fact_back are valid before changing visibility
+	if fact_label != null and fact_back != null:
+		fact_label.text = facts[fact_index]
+		fact_label.visible = true
+		fact_back.visible = true
+
+		# Position the fact UI below the player
+		#var player_pos = player.global_position
+		#fact_label.global_position = player_pos + Vector2(0, 50)  # Adjust Y as needed
+		#fact_back.global_position = fact_label.global_position
+
+		# Start the timer to hide the fact
+		fact_timer.start(10)
+		fact_index += 1  # Move to the next fact for the next display
+	else:
+		print("Error: fact_label or fact_back is null!")
+
+# Call this when reaching the level boundary
+func next_level():
 	if current_level < max_levels:
 		level_scores[current_level] = score  # Save current level's score
-
-		current_level += 1  
+		current_level += 1  # Increase level
+		update_level_ui()
 		print("Level Up! Now entering Level:", current_level)
 
-		# If the new level has no score yet, start from 0
+		# Reset fact index when moving to the next level
+		fact_index = 0
+
+		# Set score for the new level, starting from previous score or 0 if none
 		score = level_scores.get(current_level, 0)
 
-		# Update main label
-		mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
+		# Transition to the next scene
+		change_scene(levels[current_level - 1])
 	else:
-		print("Maximum level reached!")
-#hahah
-# Handle player death
-func player_died():
-	print("Player died! Restoring last level score...")
-	
-	# Reset to last level's score
-	score = level_scores.get(current_level, 0)
+		print("Game Completed!")
+		change_scene("res://scenes/GameOver.tscn")  # Game over screen
 
-	print("Restored Score:", score, "Level:", current_level)
-	
-	score_label_1.text = str(score) + "/" + str(target_points) + " coins"
-	score_label_2.text = score_label_1.text
-	score_label_3.text = score_label_1.text
-	
-	# Update main label
-	mainlabel.text = "Total Points: " + str(total_score) + " | Level: " + str(current_level) + " | Level Score: " + str(score)
+# Handles safe scene transitions while keeping the player
+func change_scene(scene_path: String):
+	var player = get_node("/root/Player")  # Persistent Player
 
-# Hide fact after timer ends
-func _on_timer_timeout():
-	print("TIMER TRIGGERED! Hiding fact...")  
-	
+	if ResourceLoader.exists(scene_path):
+		var new_scene = load(scene_path).instantiate()
+		get_tree().current_scene.queue_free()  # Remove the old scene
+		get_tree().root.add_child(new_scene)
+		get_tree().current_scene = new_scene
+
+		# Move player to the spawn position in the new scene
+		var spawn_point = new_scene.get_node("SpawnPoint")  # Ensure each level has a "SpawnPoint" node
+		if spawn_point:
+			player.global_position = spawn_point.global_position
+	else:
+		print("Error: Scene does not exist", scene_path)
+
+# Hide the fact when the timer runs out
+func hide_fact():
+	if fact_label != null and fact_back != null:
+		fact_label.visible = false
+		fact_back.visible = false
+	else:
+		print("Error: fact_label or fact_back is null!")
+func reset_all():
+	fact_index = 0 
 	fact_label.visible = false
 	fact_back.visible = false
+	
+	

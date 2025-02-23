@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvr77k8vdmsrt"]
+
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_043w2"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_ax1ho"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ax1ho")
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.962546, 0.962546, 0.962546, 1)
+theme_override_fonts/font = ExtResource("1_043w2")
+text = "Score: 0"
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 59.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.99779, 0.99779, 0.99779, 1)
+theme_override_fonts/font = ExtResource("1_043w2")
+text = "Level: 1"
