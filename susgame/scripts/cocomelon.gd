@@ -2,7 +2,6 @@ extends  Area2D
 
 @onready var game_manager = get_node("/root/GameManager") 
  # Reference to GameManager
-@onready var level_bound_2: Area2D = $"."
 	
 
 func _on_body_entered(body):

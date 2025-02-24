@@ -6,7 +6,7 @@ extends Area2D
 	
 
 func _on_body_entered(body):
-	print("Player entered boundary, advancing to next level")
+	print("Player entered boundary, advancing to next level 2")
 	game_manager.reset_all()
 	level_bound.queue_free()
 	game_manager.next_level()

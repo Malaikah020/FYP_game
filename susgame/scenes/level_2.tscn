@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="6_2plvl"]
 [ext_resource type="PackedScene" uid="uid://crab3oltp05ip" path="res://scenes/coin.tscn" id="7_hrkyj"]
-[ext_resource type="PackedScene" uid="uid://45ob0o6xgxmb" path="res://scenes/cocomelon.tscn" id="7_tver6"]
+[ext_resource type="PackedScene" uid="uid://dcscdtviv2dur" path="res://scenes/area_2d.tscn" id="8_i34kb"]
 [ext_resource type="PackedScene" uid="uid://b73esb51fg1oh" path="res://scenes/platform.tscn" id="8_s56n1"]
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="8_vl5f8"]
 [ext_resource type="PackedScene" uid="uid://dmqbin3tshhpl" path="res://scenes/traffic.tscn" id="10_mlpv0"]
@@ -271,10 +271,6 @@ position = Vector2(2679, 33)
 [node name="Killzone" parent="Killzones" instance=ExtResource("8_vl5f8")]
 position = Vector2(3394, 17)
 
-[node name="cocomelon" parent="Killzones/Killzone" instance=ExtResource("7_tver6")]
-position = Vector2(-124, -3)
-script = null
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone"]
 position = Vector2(4, 17)
 shape = SubResource("SegmentShape2D_fgccv")
@@ -322,4 +318,8 @@ texture = ExtResource("12_pyvya")
 [node name="SpawnPoint" type="Marker2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(3030, -42)
+position = Vector2(961, 40)
+
+[node name="lv_b2" parent="." instance=ExtResource("8_i34kb")]
+position = Vector2(3320, -193)
+rotation = 3.12711

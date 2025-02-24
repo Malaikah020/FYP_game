@@ -25,6 +25,59 @@ var level_facts = {}
 @onready var score_label: Label = $"../Player/UI/ScoreLabel"
 @onready var level_label: Label = $"../Player/UI/LevelLabel"
 
+# Facts for each level
+var lv1_facts = [
+	"Between 2015 and 2020, the demand for lithium-ion batteries has tripled.",
+	"Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
+	"The mining of lithium consumes approximately 500,000 tons of water per ton of lithium extracted.",
+	"70% of the world’s lithium reserves are found in Bolivia, Chile, and Argentina. This has become known as the 'lithium triangle'.",
+	"In some areas of Chile, lithium mining has depleted groundwater levels by as much as one meter per year.",
+	"Kaunda, R. B. (2020). Potential environmental impacts of lithium mining. ",
+	"Cobalt mining can lead to substances such as copper, uranium, cobalt, and arsenic, poisoning local food and water supplies.",
+	"Cobalt mining in the Democratic Republic of Congo has led to the habitat destruction of several local species such as chimpanzees, elephants, and the critically endangered Eastern Lowland Gorilla. "
+]
+
+
+var lv2_facts = [
+	"Environmental Concerns: The extraction, processing, and shipping of metals and minerals can have environmental impacts, including habitat destruction, water pollution, and carbon emissions. Balancing economic needs with sustainable practices is an ongoing challenge.",
+	"Shipping Transportation: Bulk Carriers, Container ships account for 3% of the world's total global emissions.",
+	"13.5% of all greenhouse gas emissions come from transport, including shipping.",
+	"71% of all greenhouse gas emissions from transport are from land vehicles like trucks and railways.",
+	"14.4% of all greenhouse gas emissions from transport come from air travel.",
+	"Underwater noise has contributed to half of all non-indigenous species in the European seas since 1949.",
+	"Marine mammals use underwater clicks, whistles, and songs to communicate with their young, search for food, find mates, and avoid dangers.",
+	"Of the more than 100 species systematically reviewed worldwide, every one of them shows negative responses to underwater noise."
+]
+
+
+var lv3_facts = [
+	"Since 2007, smartphone manufacturing has required up to 968TWh of electricity. This is about the same amount of electricity used by the nation of India in an entire year.",
+	"Greenpeace Calls for Sustainable Smartphone Manufacturing. ICT Monitor Worldwide",
+	"Up to 3% of the world's energy demand in 2015 came from communication technology such as smartphones and computers.",
+	"Carbon emissions from the production of iPhone hardware has increased by 39% from the iPhone 3GS to the iPhone 11.",
+	"In 2007, the production of information and communications technology accounted for 1.3% of global gas emissions.",
+	"Studies show that the total carbon emissions of a single smartphone is estimated to 50kg CO2e.",
+	"Carbon footprint of electronic devices is a growing concern in the tech industry. "
+	# NEED 1 more
+]
+
+var lv4_facts = [
+	# Add facts for planned obsolescence and user lifetime here
+	"Planned obsolescence refers to the practice of designing products with an artificially limited useful life so that they become obsolete after a certain period, forcing consumers to replace them.",
+	"This often results in increased electronic waste and contributes to environmental degradation due to excessive consumption and disposal of goods.",
+	"Many companies are adopting practices that encourage consumers to replace their products frequently, even when the devices may still be functioning well.",
+	"The rise of technology and frequent product updates contributes to a cycle where old devices become outdated quickly, often unnecessarily."
+	# NEED 8
+]
+
+var lv5_facts = [
+	"According to Waste Electrical and Electronic Equipment (WEEE), in 2024, Ireland only recycled 30% of 11 million small devices bought.",
+	"In 2021, Ireland collected 14.67 kilos of electronic equipment per person, which is the 5th highest in Europe, above the European average of 11.",
+	"To uphold recycling and repair practices, a proposal in 2020 introduced the right to repair and improve reusability, updated seller requirements to repair unless cheaper to replace, and common chargers in 2024.",
+	"Proper recycling of e-waste prevents environmental pollution such as toxic substances (lead, mercury, cadmium) in water and soil and health issues for humans and wildlife.",
+	"Ireland is actively promoting proper electronic waste recycling and repair practices, aiming to reduce the environmental impact of electronics."
+	# NEED 3
+	]
 func _ready():
 	print("GameManager Initialized")
 
