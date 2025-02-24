@@ -455,14 +455,14 @@ position = Vector2(-11, 8)
 shape = SubResource("SegmentShape2D_clo4u")
 
 [node name="Killzone6" parent="Killzones" instance=ExtResource("9_447mq")]
-position = Vector2(804, 311)
+position = Vector2(795, 308)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone6"]
 position = Vector2(-9, 7)
 shape = SubResource("SegmentShape2D_clo4u")
 
 [node name="Killzone7" parent="Killzones" instance=ExtResource("9_447mq")]
-position = Vector2(1031, 468)
+position = Vector2(1009, 487)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone7"]
 position = Vector2(14, -148)
@@ -480,6 +480,7 @@ position = Vector2(1435, 52)
 scale = Vector2(-2.59477, 3.68236)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(-510, 24)
+position = Vector2(-564, 23)
+scale = Vector2(0.983837, 1.0007)
 
 [connection signal="body_entered" from="Bounds/level_1" to="Bounds/level_1" method="_on_body_entered"]
