@@ -480,6 +480,6 @@ position = Vector2(1435, 52)
 scale = Vector2(-2.59477, 3.68236)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(855, 31)
+position = Vector2(-510, 24)
 
 [connection signal="body_entered" from="Bounds/level_1" to="Bounds/level_1" method="_on_body_entered"]

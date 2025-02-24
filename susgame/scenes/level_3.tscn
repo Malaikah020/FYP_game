@@ -864,7 +864,7 @@ position = Vector2(4179, 13)
 position = Vector2(4472, -97)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(4597, -98)
+position = Vector2(3439, -2)
 
 [node name="lv_b3" parent="." instance=ExtResource("6_pipdj")]
 position = Vector2(4663, -82)

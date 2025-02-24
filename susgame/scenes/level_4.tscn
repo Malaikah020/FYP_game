@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://di1iiii7tmjxe"]
+[gd_scene load_steps=43 format=4 uid="uid://di1iiii7tmjxe"]
 
 [ext_resource type="Texture2D" uid="uid://qtxwhpu68tii" path="res://assets/shopassets/Wall Borders + Wallpapers + Floor Tiles/Floor Tiles/Tiled_Bath Floor Tiles.png" id="1_a24k8"]
 [ext_resource type="Texture2D" uid="uid://cidt5nr3aj0cd" path="res://assets/shopassets/Wall Borders + Wallpapers + Floor Tiles/Floor Tiles/Tiled_Granite Marble Floor Tiles.png" id="2_imktl"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://6yt6g7lt0xv7" path="res://assets/shopassets/shop4.png" id="12_lhycx"]
 [ext_resource type="Texture2D" uid="uid://bcwlc2s2bo4xq" path="res://assets/shopassets/Objects/Laptop + White Boards/Laptop_Open None.png" id="13_inumk"]
 [ext_resource type="Texture2D" uid="uid://yeyl26xu5nq4" path="res://assets/shopassets/lift.png" id="17_nfr1c"]
+[ext_resource type="PackedScene" uid="uid://crab3oltp05ip" path="res://scenes/coin.tscn" id="19_niuyk"]
+[ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="19_oipxk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcgc7"]
 texture = ExtResource("1_a24k8")
@@ -2792,6 +2794,10 @@ sources/15 = SubResource("TileSetAtlasSource_k2var")
 sources/18 = SubResource("TileSetAtlasSource_qydwf")
 sources/20 = SubResource("TileSetAtlasSource_ecg0h")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b7clr"]
+a = Vector2(3, 37)
+b = Vector2(4, -26)
+
 [node name="level_4" type="Node2D"]
 position = Vector2(5, 0)
 
@@ -2830,30 +2836,39 @@ theme_override_fonts/normal_font = ExtResource("12_bbyst")
 text = "Servers
 "
 
-[node name="all" type="Node" parent="TileMap"]
+[node name="all" type="Node" parent="."]
 
-[node name="Lift" type="Sprite2D" parent="TileMap/all"]
+[node name="Lift" type="Sprite2D" parent="all"]
 position = Vector2(2514, 442)
 texture = ExtResource("17_nfr1c")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TileMap/all/Lift"]
+[node name="StaticBody2D" type="StaticBody2D" parent="all/Lift"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/all/Lift/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="all/Lift/StaticBody2D"]
 
-[node name="LaptopOpenNone2" type="Sprite2D" parent="TileMap/all"]
+[node name="LaptopOpenNone2" type="Sprite2D" parent="all"]
 position = Vector2(212, 176)
 scale = Vector2(2.69514, 1.97369)
 texture = ExtResource("13_inumk")
 
-[node name="LaptopOpenNone3" type="Sprite2D" parent="TileMap/all"]
+[node name="LaptopOpenNone3" type="Sprite2D" parent="all"]
 position = Vector2(1029, -56)
 scale = Vector2(2.94792, 2.0891)
 texture = ExtResource("13_inumk")
 
-[node name="LaptopOpenNone" type="Sprite2D" parent="TileMap/all"]
+[node name="LaptopOpenNone" type="Sprite2D" parent="all"]
 position = Vector2(644, 83)
 scale = Vector2(2.08333, 1.70455)
 texture = ExtResource("13_inumk")
 
-[node name="SpawnPoint" type="Marker2D" parent="TileMap/all"]
-position = Vector2(-183, 179)
+[node name="Coin" parent="all" instance=ExtResource("19_niuyk")]
+position = Vector2(238, 171)
+
+[node name="Killzone" parent="all" instance=ExtResource("19_oipxk")]
+position = Vector2(399, 161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="all/Killzone"]
+shape = SubResource("SegmentShape2D_b7clr")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(38, 199)
