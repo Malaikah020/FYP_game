@@ -27,8 +27,8 @@ var level_facts = {}
 
 # Facts for each level
 var lv1_facts = [
-	"Between 2015 and 2020, the demand for lithium-ion batteries has tripled.",
-	"Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
+	"Mining disrupts Indigenous lands and livelihoods, often without proper consent, threatening culture and identity.",
+	"Largely demanded Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
 	"The mining of lithium consumes approximately 500,000 tons of water per ton of lithium extracted.",
 	"70% of the world’s lithium reserves are found in Bolivia, Chile, and Argentina. This has become known as the 'lithium triangle'.",
 	"In some areas of Chile, lithium mining has depleted groundwater levels by as much as one meter per year.",
@@ -63,9 +63,9 @@ var lv3_facts = [
 var lv4_facts = [
 	# Add facts for planned obsolescence and user lifetime here
 	"Planned Obsolescence refers to intentionally shortening te lifespan of a device to artificially boost demand.",
-	" Companies such as Nokia and Apple, update the aesthetic of their products to make older models appear outdated and out of fashion",
+	"Companies such as Nokia and Apple, update the aesthetic of their products to make older models appear outdated and out of fashion",
 	"Apple has used various planned obsolescence techniques such as irreplaceable batteries and mandatory software updates",
-	" Tech companies often intentionally reserve their most recent technology for their expensive high-end models, forcing the consumer to either pay for the best model or settle for the low-end ‘affordable’ model",
+	"Tech companies often intentionally reserve their most recent technology for their expensive high-end models, forcing the consumer to either pay for the best model or settle for the low-end ‘affordable’ model",
 	"Apple have faced legal action for intentionally slowing done older iPhone models",
 	"Samsung screens are prone to many functional issues that can be triggered by software updates ",
 	"Devices such as washing machines, smartphones and cameras, often have components that intentionally can’t be easily replaced or fixed",
@@ -74,6 +74,7 @@ var lv4_facts = [
 ]
 
 var lv5_facts = [
+	"E-waste neurotoxicants, lead and mercury, can harm brain development during pregnancy to childhood and lung structure and function in all.",
 	"According to Waste Electrical and Electronic Equipment (WEEE), in 2024, Ireland only recycled 30% of 11 million small devices bought.",
 	"In 2021, Ireland collected 14.67 kilos of electronic equipment per person, which is the 5th highest in Europe, above the European average of 11.",
 	"To uphold recycling and repair practices, a proposal in 2020 introduced the right to repair and improve reusability, updated seller requirements to repair unless cheaper to replace, and common chargers in 2024.",
