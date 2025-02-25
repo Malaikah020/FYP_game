@@ -148,6 +148,7 @@ theme_override_font_sizes/bold_font_size = 16
 text = "fact:"
 fit_content = true
 scroll_active = false
+autowrap_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

@@ -2,7 +2,7 @@ extends Node
 
 # Global Game Variables
 var score: int = 0
-var current_level: int = 4
+var current_level: int = 1
 var max_levels: int = 4  # Total number of levels
 var fact_index: int = 0  # To track which fact is being shown
 
@@ -27,6 +27,7 @@ var level_facts = {}
 
 # Facts for each level
 var lv1_facts = [
+	"nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
 	"Between 2015 and 2020, the demand for lithium-ion batteries has tripled.",
 	"Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
 	"The mining of lithium consumes approximately 500,000 tons of water per ton of lithium extracted.",
@@ -34,13 +35,13 @@ var lv1_facts = [
 	"In some areas of Chile, lithium mining has depleted groundwater levels by as much as one meter per year.",
 	"Kaunda, R. B. (2020). Potential environmental impacts of lithium mining. ",
 	"Cobalt mining can lead to substances such as copper, uranium, cobalt, and arsenic, poisoning local food and water supplies.",
-	"Cobalt mining in the Democratic Republic of Congo has led to the habitat destruction of several local species such as chimpanzees, elephants, and the critically endangered Eastern Lowland Gorilla. "
+	"Cobalt mining in the DRC has led to the habitat destruction of several local species such as chimpanzees, elephants, and the critically endangered Eastern Lowland Gorilla. "
 ]
 
 
 var lv2_facts = [
-	"Environmental Concerns: The extraction, processing, and shipping of metals and minerals can have environmental impacts, including habitat destruction, water pollution, and carbon emissions. Balancing economic needs with sustainable practices is an ongoing challenge.",
-	"Shipping Transportation: Bulk Carriers, Container ships account for 3% of the world's total global emissions.",
+	"The extraction, processing, and shipping of metals and minerals can have environmental impacts, including habitat destruction, water pollution, and carbon emissions.",
+	"Bulk Carriers, Container ships account for 3% of the world's total global emissions.",
 	"13.5% of all greenhouse gas emissions come from transport, including shipping.",
 	"71% of all greenhouse gas emissions from transport are from land vehicles like trucks and railways.",
 	"14.4% of all greenhouse gas emissions from transport come from air travel.",
@@ -63,11 +64,15 @@ var lv3_facts = [
 
 var lv4_facts = [
 	# Add facts for planned obsolescence and user lifetime here
-	"Planned obsolescence refers to the practice of designing products with an artificially limited useful life so that they become obsolete after a certain period, forcing consumers to replace them.",
-	"This often results in increased electronic waste and contributes to environmental degradation due to excessive consumption and disposal of goods.",
-	"Many companies are adopting practices that encourage consumers to replace their products frequently, even when the devices may still be functioning well.",
-	"The rise of technology and frequent product updates contributes to a cycle where old devices become outdated quickly, often unnecessarily."
-	# NEED 8
+	"Planned Obsolescence refers to intentionally shortening te lifespan of a device to artificially boost demand.",
+	" Companies such as Nokia and Apple, update the aesthetic of their products to make older models appear outdated and out of fashion",
+	"Apple has used various planned obsolescence techniques such as irreplaceable batteries and mandatory software updates",
+	" Tech companies often intentionally reserve their most recent technology for their expensive high-end models, forcing the consumer to either pay for the best model or settle for the low-end ‘affordable’ model",
+	"Apple have faced legal action for intentionally slowing done older iPhone models",
+	"Samsung screens are prone to many functional issues that can be triggered by software updates ",
+	"Devices such as washing machines, smartphones and cameras, often have components that intentionally can’t be easily replaced or fixed",
+	"Another method of planned obsolescence is updating external components, such as Apple swapping out USB-A cables for USB-C cables"
+
 ]
 
 var lv5_facts = [
@@ -116,7 +121,7 @@ func add_score(amount: int):
 
 	update_score_ui()
 
-	if score % 4 == 0:
+	if score % 2 == 0:
 		show_next_fact()
 
 # Update score on UI

@@ -8,7 +8,7 @@ func _on_body_entered(body):
 	# Determine the correct behavior based on the level
 	if game_manager.current_level == 1:
 		# Level 1 - Restart the game (change to start screen or level 1)
-		#game_manager.change_scene("res://scenes/Level_1.tscn")
+		game_manager.change_scene("res://scenes/Level_1.tscn")
 		game_manager.reset_all()
 		reset_player_to_spawn("res://scenes/Level_" + str(game_manager.current_level) + ".tscn")
 	else:
