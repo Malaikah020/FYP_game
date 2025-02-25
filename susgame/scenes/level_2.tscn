@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://d3vgn70kb1ixt"]
+[gd_scene load_steps=14 format=4 uid="uid://d3vgn70kb1ixt"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="6_2plvl"]
 [ext_resource type="PackedScene" uid="uid://crab3oltp05ip" path="res://scenes/coin.tscn" id="7_hrkyj"]
 [ext_resource type="PackedScene" uid="uid://dcscdtviv2dur" path="res://scenes/area_2d.tscn" id="8_i34kb"]
 [ext_resource type="PackedScene" uid="uid://b73esb51fg1oh" path="res://scenes/platform.tscn" id="8_s56n1"]
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="8_vl5f8"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="9_s7l8k"]
 [ext_resource type="PackedScene" uid="uid://dmqbin3tshhpl" path="res://scenes/traffic.tscn" id="10_mlpv0"]
 [ext_resource type="PackedScene" uid="uid://dkovbdxk56jeh" path="res://scenes/traffic_train.tscn" id="11_70ygj"]
 [ext_resource type="Texture2D" uid="uid://cm86bqjfpx7ew" path="res://assets/sprites/Screenshot 2025-02-04 at 14.03.43.png" id="12_pyvya"]
@@ -205,54 +206,57 @@ tile_set = SubResource("TileSet_yds6y")
 position = Vector2(1152, 119)
 
 [node name="Coin3" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(1292, 19)
+position = Vector2(1288, 9)
 
 [node name="Coin4" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(1357, -25)
+position = Vector2(1351, -41)
 
 [node name="Coin6" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(1617, -104)
+position = Vector2(1626, -109)
 
 [node name="Coin7" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(1474, 53)
+position = Vector2(1506, 52)
 
 [node name="Coin8" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
 position = Vector2(1601, -11)
 
 [node name="Coin9" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(1856, 8)
+position = Vector2(1848, -26)
 
 [node name="Coin10" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(1920, -58)
+position = Vector2(1919, -58)
 
 [node name="Coin11" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(1807, 99)
+position = Vector2(1794, 97)
 
 [node name="Coin12" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(2640, -79)
+position = Vector2(2632, -66)
 
 [node name="Coin13" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(2784, 33)
+position = Vector2(2679, 13)
 
 [node name="Coin14" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(2609, -204)
+position = Vector2(3073, -12)
 
 [node name="Coin15" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
 position = Vector2(2802, -164)
 
 [node name="Coin16" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(2849, -41)
+position = Vector2(2842, -42)
 
 [node name="Coin17" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(3077, 6)
+position = Vector2(3176, 2)
 
 [node name="Coin19" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
-position = Vector2(2367, 52)
+position = Vector2(2392, 48)
+
+[node name="Coin18" parent="Coins_lv2 -16" instance=ExtResource("7_hrkyj")]
+position = Vector2(3073, -12)
 
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("8_s56n1")]
-position = Vector2(2679, 33)
+position = Vector2(2679, 41)
 
 [node name="Killzones" type="Node" parent="."]
 
@@ -311,3 +315,72 @@ position = Vector2(961, 40)
 [node name="lv_b2" parent="." instance=ExtResource("8_i34kb")]
 position = Vector2(3320, -193)
 rotation = 3.12711
+
+[node name="Label" type="Label" parent="."]
+offset_left = 974.0
+offset_top = 46.0
+offset_right = 1071.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
+theme_override_fonts/font = ExtResource("9_s7l8k")
+theme_override_font_sizes/font_size = 8
+text = "CODY'S 
+TRANSPORT->
+LEVEL 2"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1349.0
+offset_top = 53.0
+offset_right = 1453.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
+theme_override_fonts/font = ExtResource("9_s7l8k")
+theme_override_font_sizes/font_size = 8
+text = "Carefull traffic!"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 2526.0
+offset_top = 116.0
+offset_right = 2555.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
+theme_override_fonts/font = ExtResource("9_s7l8k")
+theme_override_font_sizes/font_size = 8
+text = "RUN!"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 2167.0
+offset_top = 69.0
+offset_right = 2271.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
+theme_override_fonts/font = ExtResource("9_s7l8k")
+theme_override_font_sizes/font_size = 8
+text = "Carefull traffic!"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 2573.0
+offset_top = -98.0
+offset_right = 2635.0
+offset_bottom = -79.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.570859, 0.711253, 1, 1)
+theme_override_fonts/font = ExtResource("9_s7l8k")
+theme_override_font_sizes/font_size = 8
+text = "Head down
+      \\/ "
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 3197.0
+offset_top = 3.0
+offset_right = 3301.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
+theme_override_fonts/font = ExtResource("9_s7l8k")
+theme_override_font_sizes/font_size = 8
+text = "LEVEL 2 COMPLETE ->"

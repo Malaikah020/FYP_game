@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b21tkvrwanerl"]
+[gd_scene load_steps=13 format=3 uid="uid://b21tkvrwanerl"]
 
 [ext_resource type="Texture2D" uid="uid://c1diciaqqrmpx" path="res://assets/sprites/Untitled.png" id="2_ktuey"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_m6f8g"]
@@ -64,13 +64,17 @@ region = Rect2(900, 196, 150, 196)
 atlas = ExtResource("2_ktuey")
 region = Rect2(798, 392, 133, 196)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_swmmv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw2lq"]
 atlas = ExtResource("2_ktuey")
-region = Rect2(900, 392, 150, 196)
+region = Rect2(1056, 392, 132, 196)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8dhi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyvfb"]
 atlas = ExtResource("2_ktuey")
-region = Rect2(1050, 392, 150, 196)
+region = Rect2(924, 392, 132, 196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ketpc"]
+atlas = ExtResource("2_ktuey")
+region = Rect2(792, 392, 132, 196)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i6olx"]
 animations = [{
@@ -92,10 +96,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_swmmv")
+"texture": SubResource("AtlasTexture_nw2lq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h8dhi")
+"texture": SubResource("AtlasTexture_fyvfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ketpc")
 }],
 "loop": true,
 "name": &"run",
@@ -116,10 +123,10 @@ shape = SubResource("CircleShape2D_m1lt8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-4, -10)
+position = Vector2(-1, -10)
 scale = Vector2(0.152294, 0.117051)
 sprite_frames = SubResource("SpriteFrames_i6olx")
-animation = &"run"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -148,7 +155,6 @@ theme_override_font_sizes/bold_font_size = 16
 text = "fact:"
 fit_content = true
 scroll_active = false
-autowrap_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

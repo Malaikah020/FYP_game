@@ -27,13 +27,11 @@ var level_facts = {}
 
 # Facts for each level
 var lv1_facts = [
-	"nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
 	"Between 2015 and 2020, the demand for lithium-ion batteries has tripled.",
 	"Lithium-ion batteries are used in a wide range of electronics such as smartphones, computers, electric vehicles, and electricity grids.",
 	"The mining of lithium consumes approximately 500,000 tons of water per ton of lithium extracted.",
 	"70% of the world’s lithium reserves are found in Bolivia, Chile, and Argentina. This has become known as the 'lithium triangle'.",
 	"In some areas of Chile, lithium mining has depleted groundwater levels by as much as one meter per year.",
-	"Kaunda, R. B. (2020). Potential environmental impacts of lithium mining. ",
 	"Cobalt mining can lead to substances such as copper, uranium, cobalt, and arsenic, poisoning local food and water supplies.",
 	"Cobalt mining in the DRC has led to the habitat destruction of several local species such as chimpanzees, elephants, and the critically endangered Eastern Lowland Gorilla. "
 ]

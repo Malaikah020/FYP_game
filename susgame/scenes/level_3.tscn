@@ -825,34 +825,49 @@ position = Vector2(3439, 166)
 position = Vector2(555, 2)
 shape = SubResource("RectangleShape2D_u7cpe")
 
-[node name="Coins_lv3 -8" type="Node" parent="."]
+[node name="Coins_lv3 -14" type="Node" parent="."]
 
-[node name="Coin" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(3827, 1)
 
-[node name="Coin2" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin2" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(3446, 114)
 
-[node name="Coin4" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin4" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(3735, 113)
 
-[node name="Coin6" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin6" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(3896, 11)
 
-[node name="Coin7" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin7" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(3897, -66)
 
-[node name="Coin8" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin8" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(4250, 109)
 
-[node name="Coin9" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin9" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(4504, 37)
 
-[node name="Coin11" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin11" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(4179, 13)
 
-[node name="Coin12" parent="Coins_lv3 -8" instance=ExtResource("10_d0wfd")]
+[node name="Coin12" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(4472, -97)
+
+[node name="Coin3" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
+position = Vector2(3691, 4)
+
+[node name="Coin5" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
+position = Vector2(3992, 67)
+
+[node name="Coin10" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
+position = Vector2(4583, -97)
+
+[node name="Coin13" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
+position = Vector2(4473, 115)
+
+[node name="Coin14" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
+position = Vector2(3622, 122)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(3439, -2)
