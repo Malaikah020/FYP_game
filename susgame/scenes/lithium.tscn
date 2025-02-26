@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://lyhc4chr0kby"]
+
+[ext_resource type="Texture2D" uid="uid://rub8d0brfpd0" path="res://assets/shopassets/Untitled design (5).png" id="1_acefd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5crc5"]
+radius = 96.0469
+
+[node name="lithium" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(11, -4)
+scale = Vector2(1.10938, 1.10625)
+texture = ExtResource("1_acefd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-13, -10)
+shape = SubResource("CircleShape2D_5crc5")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dco401v1bk52l"]
+[gd_scene load_steps=21 format=4 uid="uid://dco401v1bk52l"]
 
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="2_s07cv"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_hyl1g"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://crab3oltp05ip" path="res://scenes/coin.tscn" id="7_swxae"]
 [ext_resource type="PackedScene" uid="uid://b73esb51fg1oh" path="res://scenes/platform.tscn" id="8_ow7rh"]
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="9_447mq"]
+[ext_resource type="PackedScene" uid="uid://lyhc4chr0kby" path="res://scenes/lithium.tscn" id="9_l36i0"]
 [ext_resource type="PackedScene" uid="uid://op046fv65wgr" path="res://scenes/Slime.tscn" id="10_rto51"]
 [ext_resource type="PackedScene" uid="uid://4bgsmw643i1m" path="res://scenes/level_bound.tscn" id="14_mwh5y"]
 
@@ -174,6 +175,49 @@ texture = ExtResource("6_n5rwe")
 [sub_resource type="TileSet" id="TileSet_qd5d1"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vmfg0")
+
+[sub_resource type="Animation" id="Animation_8qwr0"]
+resource_name = "move"
+loop_mode = 2
+
+[sub_resource type="Animation" id="Animation_smtue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 169)]
+}
+
+[sub_resource type="Animation" id="Animation_obsgb"]
+resource_name = "move_"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(900, 169), Vector2(835, 169)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wygjf"]
+_data = {
+"RESET": SubResource("Animation_smtue"),
+"move": SubResource("Animation_8qwr0"),
+"move_": SubResource("Animation_obsgb")
+}
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_b0yoy"]
 a = Vector2(-45, -37)
@@ -348,6 +392,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Label11" type="Label" parent="Labels"]
 texture_filter = 1
 anchors_preset = -1
+anchor_top = -0.0122137
 anchor_right = 0.0277778
 anchor_bottom = -0.0122137
 offset_left = 1281.0
@@ -416,7 +461,13 @@ position = Vector2(1304, 118)
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("8_ow7rh")]
-position = Vector2(871, 170)
+position = Vector2(900, 169)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_wygjf")
+}
+autoplay = "move_"
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("8_ow7rh")]
 position = Vector2(3163, 11)
@@ -487,5 +538,9 @@ scale = Vector2(-2.59477, 3.68236)
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(133, -34)
 scale = Vector2(0.983837, 1.0007)
+
+[node name="lithium" parent="." instance=ExtResource("9_l36i0")]
+position = Vector2(156, 249)
+scale = Vector2(0.0993975, 0.129963)
 
 [connection signal="body_entered" from="Bounds/level_1" to="Bounds/level_1" method="_on_body_entered"]
