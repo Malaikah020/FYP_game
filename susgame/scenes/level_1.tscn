@@ -176,10 +176,6 @@ texture = ExtResource("6_n5rwe")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vmfg0")
 
-[sub_resource type="Animation" id="Animation_8qwr0"]
-resource_name = "move"
-loop_mode = 2
-
 [sub_resource type="Animation" id="Animation_smtue"]
 length = 0.001
 tracks/0/type = "value"
@@ -194,6 +190,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(900, 169)]
 }
+
+[sub_resource type="Animation" id="Animation_8qwr0"]
+resource_name = "move"
+loop_mode = 2
 
 [sub_resource type="Animation" id="Animation_obsgb"]
 resource_name = "move_"
@@ -467,7 +467,7 @@ position = Vector2(900, 169)
 libraries = {
 "": SubResource("AnimationLibrary_wygjf")
 }
-autoplay = "move_"
+autoplay = "RESET"
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("8_ow7rh")]
 position = Vector2(3163, 11)
