@@ -1,5 +1,5 @@
 extends Area2D
-
+#not needed
 @onready var game_manager = get_node("/root/GameManager") 
 
 

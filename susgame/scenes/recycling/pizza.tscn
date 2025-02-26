@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgyjpyj56cxm6"]
+
+[ext_resource type="Script" path="res://scripts/recycling.gd" id="1_xy0tu"]
+[ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="2_56oxb"]
+[ext_resource type="Texture2D" uid="uid://yxto1jbcybcv" path="res://assets/sprites/recycling/items.png" id="3_0nyvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onql7"]
+size = Vector2(36, 17)
+
+[node name="bottle" type="Node2D"]
+texture_filter = 2
+script = ExtResource("1_xy0tu")
+
+[node name="Killzone" parent="." instance=ExtResource("2_56oxb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_onql7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, -10)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_0nyvd")
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -8)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-17, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(19, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 9)

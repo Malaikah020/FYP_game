@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlh85cuf8iu1n"]
+
+[ext_resource type="Script" path="res://scripts/livezone.gd" id="1_av0hx"]
+
+[node name="livezone" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_av0hx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

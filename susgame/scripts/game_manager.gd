@@ -2,8 +2,8 @@ extends Node
 
 # Global Game Variables
 var score: int = 0
-var current_level: int = 1
-var max_levels: int = 4  # Total number of levels
+var current_level: int = 4
+var max_levels: int = 5 # Total number of levels
 var fact_index: int = 0  # To track which fact is being shown
 
 # Level scene paths (Ensure these are correct)
@@ -11,7 +11,9 @@ var levels := [
 	"res://scenes/Level_1.tscn",
 	"res://scenes/Level_2.tscn",
 	"res://scenes/Level_3.tscn",
-	"res://scenes/Level_4.tscn"
+	"res://scenes/Level_4.tscn",
+	"res://scenes/Level_5.tscn"
+	
 ]
 
 # Dictionaries to store scores and facts
@@ -194,6 +196,8 @@ func change_scene(scene_path: String):
 		if spawn_point:
 			player.global_position = spawn_point.global_position
 			print("Player moved to new SpawnPoint.")
+			update_score_ui()
+			update_level_ui()
 		else:
 			print("Warning: No SpawnPoint found in new level!")
 	else:

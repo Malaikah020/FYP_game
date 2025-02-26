@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsnhk8t0q688s"]
+
+[ext_resource type="Texture2D" uid="uid://b43w8dy5r6rb2" path="res://assets/sprites/Untitled design (6).png" id="1_eynmj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn7xr"]
+size = Vector2(28, 30)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.13687e-13, -34)
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_eynmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_mn7xr")

@@ -6,6 +6,6 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("boundary 4 4-5 you have entered ")
+	print("boundary 3 3-4 you have entered ")
 
 	game_manager.next_level()

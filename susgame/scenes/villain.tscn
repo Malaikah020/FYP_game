@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr22ubxs1h0cv"]
+
+[ext_resource type="Script" path="res://scripts/traffic_train.gd" id="1_lv8k7"]
+[ext_resource type="Texture2D" uid="uid://cpfcmh5v3pqg7" path="res://assets/sprites/Untitled design (6) (1).png" id="2_ve5e4"]
+[ext_resource type="Texture2D" uid="uid://b6rsibjfge6xt" path="res://assets/sprites/Untitled design (6) (2).png" id="3_0fa6q"]
+[ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="3_akr25"]
+[ext_resource type="PackedScene" uid="uid://dlh85cuf8iu1n" path="res://scenes/livezone.tscn" id="4_i8md6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsday"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ve5e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0fa6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2lpe"]
+size = Vector2(48, 11)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ashik"]
+radius = 29.5
+height = 72.0
+
+[node name="villain" type="Node2D"]
+texture_filter = 2
+script = ExtResource("1_lv8k7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 5.5)
+scale = Vector2(0.21, 0.2175)
+sprite_frames = SubResource("SpriteFrames_wsday")
+frame_progress = 0.300126
+flip_h = true
+
+[node name="livezone" parent="." instance=ExtResource("4_i8md6")]
+position = Vector2(0, 30.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="livezone"]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_y2lpe")
+
+[node name="Killzone" parent="." instance=ExtResource("3_akr25")]
+position = Vector2(0, 30.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-2, -30)
+shape = SubResource("CapsuleShape2D_ashik")
+
+[node name="RayCastright" type="RayCast2D" parent="."]
+target_position = Vector2(28, 0)
+
+[node name="RayCastleft" type="RayCast2D" parent="."]
+target_position = Vector2(-31, 0)

@@ -177,7 +177,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vmfg0")
 
 [sub_resource type="Animation" id="Animation_smtue"]
-length = 0.001
+length = 1.5
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -185,10 +186,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.46667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(900, 169)]
+"values": [Vector2(900, 169), Vector2(836, 169)]
 }
 
 [sub_resource type="Animation" id="Animation_8qwr0"]

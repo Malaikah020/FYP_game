@@ -126,7 +126,7 @@ texture_filter = 1
 position = Vector2(-1, -10)
 scale = Vector2(0.152294, 0.117051)
 sprite_frames = SubResource("SpriteFrames_i6olx")
-animation = &"jump"
+animation = &"run"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -157,7 +157,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 one_shot = true
 
 [node name="UI" parent="." instance=ExtResource("4_gjtsc")]

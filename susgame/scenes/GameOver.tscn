@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxx8le5hplrer"]
+[gd_scene load_steps=4 format=3 uid="uid://cxx8le5hplrer"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_e7bst"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_vb38y"]
+[ext_resource type="Texture2D" uid="uid://cplaidwn6pn1w" path="res://assets/shopassets/game_over.jpeg" id="2_4y7cw"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -10,18 +11,32 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_e7bst")
 
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.388992, 0.398026)
+texture = ExtResource("2_4y7cw")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -135.0
+offset_top = -71.0
+offset_right = 151.0
+offset_bottom = 30.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.973535, 0.973535, 0.973535, 1)
 theme_override_fonts/font = ExtResource("1_vb38y")
-text = "Game Over"
+theme_override_font_sizes/font_size = 22
+text = "    CONGRATS!!!
+ Cody is recyled!
+   
+ 
+"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -85.0
+offset_top = 28.0
+offset_right = 85.0
+offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("1_vb38y")
-text = "Restart"
+text = "Restart Game"
