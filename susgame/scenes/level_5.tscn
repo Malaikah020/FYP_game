@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://do3rclwqj0ii7"]
+[gd_scene load_steps=44 format=3 uid="uid://do3rclwqj0ii7"]
 
 [ext_resource type="PackedScene" uid="uid://po10anpuk0fl" path="res://scenes/recycling/bottle2.tscn" id="4_hkp4d"]
 [ext_resource type="PackedScene" uid="uid://cq0mj0fdu6ayl" path="res://scenes/recycling/bottle.tscn" id="5_alkru"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dsnhk8t0q688s" path="res://scenes/piston.tscn" id="15_nikrr"]
 [ext_resource type="PackedScene" uid="uid://dys5tq1vtjx5j" path="res://scenes/villain.tscn" id="17_b0mq2"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="19_ox6bv"]
+[ext_resource type="PackedScene" uid="uid://csp2i8vmsg7el" path="res://scenes/mercury.tscn" id="20_13j5b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pldw6"]
 texture = ExtResource("6_vnavc")
@@ -874,3 +875,7 @@ theme_override_fonts/font = ExtResource("19_ox6bv")
 theme_override_font_sizes/font_size = 8
 text = "JUMP ON HIS HEAD!!"
 metadata/_edit_use_anchors_ = true
+
+[node name="mercury" parent="." instance=ExtResource("20_13j5b")]
+position = Vector2(407.635, 116.359)
+scale = Vector2(0.277969, 0.28588)

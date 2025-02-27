@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://csp2i8vmsg7el"]
+
+[ext_resource type="Texture2D" uid="uid://cm0dtnjavrk6m" path="res://assets/sprites/7d7af6c7-2eb3-4877-a56a-da110afe42c1.png" id="1_m3dyp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqkwu"]
+radius = 48.0416
+
+[node name="mercury" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-1, -12)
+scale = Vector2(0.269022, 0.263907)
+texture = ExtResource("1_m3dyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_gqkwu")
