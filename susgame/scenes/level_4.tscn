@@ -3473,7 +3473,7 @@ texture = ExtResource("25_eq1qq")
 [node name="Coins_lv_4-16" type="Node" parent="all"]
 
 [node name="Coin" parent="all/Coins_lv_4-16" instance=ExtResource("19_niuyk")]
-position = Vector2(238, 171)
+position = Vector2(239, 176)
 
 [node name="Coin2" parent="all/Coins_lv_4-16" instance=ExtResource("19_niuyk")]
 position = Vector2(2511, 277)

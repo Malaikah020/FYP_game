@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cgyjpyj56cxm6" path="res://scenes/recycling/pizza.tscn" id="11_2sxna"]
 [ext_resource type="PackedScene" uid="uid://bf1lmalqjsk5" path="res://scenes/recycling/glass.tscn" id="14_gphfy"]
 [ext_resource type="PackedScene" path="res://scenes/piston.tscn" id="15_nikrr"]
-[ext_resource type="PackedScene" path="res://scenes/villain.tscn" id="17_b0mq2"]
+[ext_resource type="PackedScene" uid="uid://dys5tq1vtjx5j" path="res://scenes/villain.tscn" id="17_b0mq2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pldw6"]
 texture = ExtResource("6_vnavc")

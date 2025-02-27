@@ -14,7 +14,7 @@ func _on_body_entered(body):
 	else:
 		game_manager.reset_all()
 		# For levels above 1, reset the player to the spawn point and set level score to 0
-		reset_player_to_spawn("res://scenes/Level_" + str(game_manager.current_level) + ".tscn")
+		reset_player_to_spawn("res://scenes/GameOver.tscn")
 
 	
 
