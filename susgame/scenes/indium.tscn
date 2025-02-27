@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1netys1hqb00"]
+
+[ext_resource type="Texture2D" uid="uid://b6tn3qcxfxsfk" path="res://assets/sprites/Untitled design (9).png" id="1_yexqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nengb"]
+size = Vector2(159, 95)
+
+[node name="indium" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-34, 4)
+scale = Vector2(0.70469, 0.59881)
+texture = ExtResource("1_yexqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5.5, 1.5)
+shape = SubResource("RectangleShape2D_nengb")

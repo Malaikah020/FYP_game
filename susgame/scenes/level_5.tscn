@@ -773,7 +773,7 @@ shape = SubResource("RectangleShape2D_gdc6o")
 
 [node name="villain" parent="." instance=ExtResource("17_b0mq2")]
 position = Vector2(1484, 752)
-scale = Vector2(0.411874, 0.434089)
+scale = Vector2(0.513674, 0.504697)
 
 [node name="Killzone2" parent="." instance=ExtResource("8_ennjs")]
 position = Vector2(508, 135)

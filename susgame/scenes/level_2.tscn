@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d3vgn70kb1ixt"]
+[gd_scene load_steps=18 format=4 uid="uid://d3vgn70kb1ixt"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="6_2plvl"]
 [ext_resource type="PackedScene" uid="uid://crab3oltp05ip" path="res://scenes/coin.tscn" id="7_hrkyj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="8_vl5f8"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="9_s7l8k"]
 [ext_resource type="PackedScene" uid="uid://dmqbin3tshhpl" path="res://scenes/traffic.tscn" id="10_mlpv0"]
+[ext_resource type="PackedScene" uid="uid://b7uk18oajheh0" path="res://scenes/copper.tscn" id="10_p8ewl"]
 [ext_resource type="PackedScene" uid="uid://dkovbdxk56jeh" path="res://scenes/traffic_train.tscn" id="11_70ygj"]
 [ext_resource type="Texture2D" uid="uid://cm86bqjfpx7ew" path="res://assets/sprites/Screenshot 2025-02-04 at 14.03.43.png" id="12_pyvya"]
 
@@ -383,7 +384,7 @@ theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
 theme_override_fonts/font = ExtResource("9_s7l8k")
 theme_override_font_sizes/font_size = 8
-text = "Carefull traffic!"
+text = "Careful traffic!"
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 2526.0
@@ -429,3 +430,7 @@ theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519,
 theme_override_fonts/font = ExtResource("9_s7l8k")
 theme_override_font_sizes/font_size = 8
 text = "LEVEL 2 COMPLETE ->"
+
+[node name="copper" parent="." instance=ExtResource("10_p8ewl")]
+position = Vector2(1417, 105)
+scale = Vector2(0.237573, 0.252511)

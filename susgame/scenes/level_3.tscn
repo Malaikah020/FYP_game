@@ -1,12 +1,13 @@
-[gd_scene load_steps=31 format=3 uid="uid://btfuwi4p3sd47"]
+[gd_scene load_steps=32 format=3 uid="uid://btfuwi4p3sd47"]
 
+[ext_resource type="PackedScene" uid="uid://c1netys1hqb00" path="res://scenes/indium.tscn" id="6_dhkxm"]
 [ext_resource type="PackedScene" uid="uid://crdh5bgdwfrip" path="res://scenes/area_2d_3.tscn" id="6_pipdj"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="6_vnavc"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_dwql7"]
 [ext_resource type="PackedScene" uid="uid://b73esb51fg1oh" path="res://scenes/platform.tscn" id="7_q58x5"]
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="8_ennjs"]
 [ext_resource type="PackedScene" uid="uid://op046fv65wgr" path="res://scenes/Slime.tscn" id="8_mgle4"]
-[ext_resource type="PackedScene" path="res://scenes/conveyor.tscn" id="9_qh1yt"]
+[ext_resource type="PackedScene" uid="uid://6gkr0ho7k6mm" path="res://scenes/conveyor.tscn" id="9_qh1yt"]
 [ext_resource type="PackedScene" uid="uid://crab3oltp05ip" path="res://scenes/coin.tscn" id="10_d0wfd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pldw6"]
@@ -830,7 +831,7 @@ shape = SubResource("RectangleShape2D_1vpif")
 [node name="Coins_lv3 -14" type="Node" parent="."]
 
 [node name="Coin" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
-position = Vector2(3827, 1)
+position = Vector2(3793, 4)
 
 [node name="Coin2" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(3446, 114)
@@ -870,6 +871,10 @@ position = Vector2(4473, 115)
 
 [node name="Coin14" parent="Coins_lv3 -14" instance=ExtResource("10_d0wfd")]
 position = Vector2(3622, 122)
+
+[node name="indium" parent="Coins_lv3 -14" instance=ExtResource("6_dhkxm")]
+position = Vector2(3830, 7)
+scale = Vector2(0.130604, 0.173487)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(3470, -2)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7uk18oajheh0"]
+
+[ext_resource type="Texture2D" uid="uid://t4yawmyh33qn" path="res://assets/sprites/sr2017afa840baws3.webp" id="1_ki4xh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0f12"]
+size = Vector2(634.146, 590.909)
+
+[node name="copper" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.43051e-06, 2)
+scale = Vector2(0.123, 0.105833)
+shape = SubResource("RectangleShape2D_l0f12")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-9.53674e-07, 0)
+scale = Vector2(0.0516667, 0.0533333)
+texture = ExtResource("1_ki4xh")

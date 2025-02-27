@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://di1iiii7tmjxe"]
+[gd_scene load_steps=67 format=4 uid="uid://di1iiii7tmjxe"]
 
 [ext_resource type="Texture2D" uid="uid://qtxwhpu68tii" path="res://assets/shopassets/Wall Borders + Wallpapers + Floor Tiles/Floor Tiles/Tiled_Bath Floor Tiles.png" id="1_a24k8"]
 [ext_resource type="Texture2D" uid="uid://cidt5nr3aj0cd" path="res://assets/shopassets/Wall Borders + Wallpapers + Floor Tiles/Floor Tiles/Tiled_Granite Marble Floor Tiles.png" id="2_imktl"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="23_m5jkj"]
 [ext_resource type="Texture2D" uid="uid://bnj5qifa3trxw" path="res://assets/shopassets/scraps.png" id="25_eq1qq"]
 [ext_resource type="PackedScene" uid="uid://cjme6n2rej2pe" path="res://scenes/area_2d_4.tscn" id="27_jd8o3"]
+[ext_resource type="PackedScene" uid="uid://dergteeb28j4a" path="res://scenes/silicon.tscn" id="28_45qs4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcgc7"]
 texture = ExtResource("1_a24k8")
@@ -3525,3 +3526,8 @@ position = Vector2(4391, 223)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(38, 199)
+
+[node name="silicon" parent="." instance=ExtResource("28_45qs4")]
+top_level = true
+position = Vector2(2203, 189)
+scale = Vector2(0.190839, 0.20353)
