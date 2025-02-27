@@ -62,12 +62,10 @@ shape = SubResource("WorldBoundaryShape2D_ac08m")
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(160, 91)
 rotation = -1.51814
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-3.73525, -51.8753)
 rotation = 5.02202e-05
-scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_2gdbx")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
