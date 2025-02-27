@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://csp2i8vmsg7el"]
+[gd_scene load_steps=9 format=3 uid="uid://csp2i8vmsg7el"]
 
-[ext_resource type="Texture2D" uid="uid://cm0dtnjavrk6m" path="res://assets/sprites/7d7af6c7-2eb3-4877-a56a-da110afe42c1.png" id="1_m3dyp"]
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_md6sv"]
+[ext_resource type="Texture2D" uid="uid://bp38bmukbo1lh" path="res://assets/sprites/MERCURY/Untitled design (11).png" id="2_lc8bn"]
+[ext_resource type="Texture2D" uid="uid://cwbq46qnpugva" path="res://assets/sprites/MERCURY/Untitled design (913.png" id="3_tpkwi"]
+[ext_resource type="Texture2D" uid="uid://c6dkomborrqj1" path="res://assets/sprites/MERCURY/Untitled design (9).png" id="4_5orcj"]
+[ext_resource type="Texture2D" uid="uid://c2fv0h28wmudi" path="res://assets/sprites/MERCURY/Untitled design (10).png" id="5_hjagl"]
+[ext_resource type="Texture2D" uid="uid://kklon7srvo8l" path="res://assets/sprites/MERCURY/Untitled design (12).png" id="6_3bq1c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqkwu"]
 radius = 48.0416
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k17vm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lc8bn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tpkwi")
+}],
+"loop": true,
+"name": &"anger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5orcj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hjagl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3bq1c")
+}],
+"loop": true,
+"name": &"joy",
+"speed": 5.0
+}]
 
 [node name="mercury" type="Area2D"]
 texture_filter = 1
@@ -15,10 +52,13 @@ script = ExtResource("1_md6sv")
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_gqkwu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1, -12)
 scale = Vector2(0.269022, 0.263907)
-texture = ExtResource("1_m3dyp")
+sprite_frames = SubResource("SpriteFrames_k17vm")
+animation = &"anger"
+autoplay = "default"
+frame_progress = 0.0449138
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
