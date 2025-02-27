@@ -1,7 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://dergteeb28j4a"]
+[gd_scene load_steps=9 format=3 uid="uid://dergteeb28j4a"]
 
-[ext_resource type="Texture2D" uid="uid://drfhhka11ww4w" path="res://assets/sprites/silocon.png" id="1_yb1kp"]
 [ext_resource type="Script" path="res://scripts/character.gd" id="2_cieo3"]
+[ext_resource type="Texture2D" uid="uid://bh4l6fekfe2ed" path="res://assets/sprites/SILICON/Untitled design (22).png" id="2_iagde"]
+[ext_resource type="Texture2D" uid="uid://cq3v1v3aiduxd" path="res://assets/sprites/SILICON/Untitled design (23).png" id="3_6v6ym"]
+[ext_resource type="Texture2D" uid="uid://ci2bm40fb66u2" path="res://assets/sprites/SILICON/Untitled design (18).png" id="4_flg7h"]
+[ext_resource type="Texture2D" uid="uid://cs5pce1ljcr0f" path="res://assets/sprites/SILICON/Untitled design (20).png" id="5_63nop"]
+[ext_resource type="Texture2D" uid="uid://tu5ospulf7p8" path="res://assets/sprites/SILICON/Untitled design (21).png" id="6_elgp8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e863n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iagde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6v6ym")
+}],
+"loop": true,
+"name": &"anger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_flg7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_63nop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_elgp8")
+}],
+"loop": true,
+"name": &"joy",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqkwu"]
 radius = 100.13
@@ -11,10 +48,12 @@ texture_filter = 1
 collision_mask = 2
 script = ExtResource("2_cieo3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -12)
 scale = Vector2(0.269022, 0.263907)
-texture = ExtResource("1_yb1kp")
+sprite_frames = SubResource("SpriteFrames_e863n")
+animation = &"anger"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
