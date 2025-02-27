@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxx8le5hplrer"]
+[gd_scene load_steps=7 format=3 uid="uid://cxx8le5hplrer"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_e7bst"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="1_vb38y"]
 [ext_resource type="Texture2D" uid="uid://cplaidwn6pn1w" path="res://assets/shopassets/game_over.jpeg" id="2_4y7cw"]
 [ext_resource type="PackedScene" uid="uid://b73esb51fg1oh" path="res://scenes/platform.tscn" id="4_i16hu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ac08m"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2gdbx"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -13,8 +18,8 @@ offset_bottom = 40.0
 script = ExtResource("1_e7bst")
 
 [node name="GameOver" type="Sprite2D" parent="."]
-position = Vector2(1, 1)
-scale = Vector2(0.388992, 0.398026)
+position = Vector2(1, 71)
+scale = Vector2(0.524295, 0.556708)
 texture = ExtResource("2_4y7cw")
 
 [node name="Label" type="Label" parent="."]
@@ -36,14 +41,33 @@ text = "    CONGRATS!!!
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = -85.0
-offset_top = 28.0
+offset_top = 36.0
 offset_right = 85.0
-offset_bottom = 52.0
+offset_bottom = 60.0
 theme_override_fonts/font = ExtResource("1_vb38y")
 text = "Restart Game"
 
 [node name="Platform" parent="." instance=ExtResource("4_i16hu")]
-position = Vector2(3, 69)
-scale = Vector2(24.4641, 2.315)
+position = Vector2(3, 91)
+scale = Vector2(24.4641, 0.630657)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-120, 91)
+shape = SubResource("WorldBoundaryShape2D_ac08m")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(160, 91)
+rotation = -1.51814
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-3.73525, -51.8753)
+rotation = 5.02202e-05
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_2gdbx")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -2,7 +2,7 @@ extends Node
 
 # Global Game Variables
 var score: int = 0
-var current_level: int = 5
+var current_level: int = 1
 var max_levels: int = 5 # Total number of levels
 var fact_index: int = 0  # To track which fact is being shown
 

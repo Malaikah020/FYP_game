@@ -2,17 +2,8 @@ extends Area2D
 
 @onready var timer = $Timer
 @onready var game_manager = get_node("/root/GameManager")  # Reference to GameManager node
-'''
-func _on_body_entered(body):
-	
-	# Determine the correct behavior based on the level
-	game_manager.reset_all()
-	# For levels above 1, reset the player to the spawn point and set level score to 0
-	reset_player_to_spawn("res://scenes/GameOver.tscn")
 
-	
 
-'''
 # Reset player to spawn point based on the level
 func reset_player_to_spawn(level_scene_path: String):
 	# Load the level scene (but don't instantiate it yet)
@@ -48,4 +39,4 @@ func reset_player_to_spawn(level_scene_path: String):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	reset_player_to_spawn("res://scenes/GameOver.tscn") # Replace with function body.
+	game_manager.next_level()# Replace with function body.

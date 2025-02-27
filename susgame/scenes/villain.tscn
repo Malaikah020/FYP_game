@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpfcmh5v3pqg7" path="res://assets/sprites/Untitled design (6) (1).png" id="2_ve5e4"]
 [ext_resource type="Texture2D" uid="uid://b6rsibjfge6xt" path="res://assets/sprites/Untitled design (6) (2).png" id="3_0fa6q"]
 [ext_resource type="PackedScene" uid="uid://ccsekeuaodir4" path="res://scenes/killzone.tscn" id="3_akr25"]
-[ext_resource type="PackedScene" uid="uid://dlh85cuf8iu1n" path="res://scenes/livezone.tscn" id="4_i8md6"]
+[ext_resource type="PackedScene" uid="uid://cb1fplyqb16j6" path="res://scenes/livezone.tscn" id="4_i8md6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wsday"]
 animations = [{
@@ -42,7 +42,7 @@ flip_h = true
 [node name="livezone" parent="." instance=ExtResource("4_i8md6")]
 position = Vector2(0, 30.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="livezone"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="livezone"]
 position = Vector2(-1, -60.5)
 scale = Vector2(0.972809, 1)
 shape = SubResource("RectangleShape2D_y2lpe")
