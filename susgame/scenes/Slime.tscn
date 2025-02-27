@@ -66,6 +66,8 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nnhlv")
 animation = &"idle"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_k6tgl")]

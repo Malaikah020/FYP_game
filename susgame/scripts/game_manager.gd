@@ -5,6 +5,7 @@ var score: int = 0
 var current_level: int = 1
 var max_levels: int = 5 # Total number of levels
 var fact_index: int = 0  # To track which fact is being shown
+var character_index: int = 0
 
 # Level scene paths (Ensure these are correct)
 var levels := [
@@ -19,6 +20,7 @@ var levels := [
 # Dictionaries to store scores and facts
 var level_scores = {}  
 var level_facts = {}   
+var level_character = {}
 
 @onready var fact_back: Sprite2D = $"../Player/FactBack"
 @onready var fact_label: RichTextLabel = $"../Player/fact_label"
@@ -105,6 +107,12 @@ func _ready():
 	level_facts[4] = lv4_facts
 	level_facts[5] = lv5_facts
 
+	level_character[1] = ["You found LITHIUM! An element used to make rechargeable batteries."]
+	level_character[2] = ["You found COPPER! An element used for power transmission in electronic devices"]
+	level_character[3] = ["You found INDIUM! An element used to build electrical circuits"]
+	level_character[4] = ["You found SILICON! An element used in electrical circuits, as well as to make external features on devices"]
+	level_character[5] = ["You found MERCURY! An element used in electronic screens"]
+	
 	# Debugging: Check if ScoreLabel exists
 	if score_label == null:
 		print("ScoreLabel not found! Ensure it's in the correct path.")
@@ -137,6 +145,29 @@ func update_level_ui():
 		level_label.text = "Level: " + str(current_level)
 	else:
 		print("Error: LevelLabel is null!")
+
+
+# Show the character for the current level
+func show_character():
+	var character = level_character.get(current_level, [])
+	if character.size() == 0:
+		print("No character available for this level.")
+		return
+
+	if character_index >= character.size():
+		character_index = 0  
+
+	print("Displaying fact:", character[character_index])
+
+	if fact_label != null and fact_back != null:
+		fact_label.text = character[character_index]
+		fact_label.visible = true
+		fact_back.visible = true
+
+		fact_timer.start(10)
+		character_index += 1  
+	else:
+		print("Error: fact_label or fact_back is null!")
 
 # Show the next fact for the current level
 func show_next_fact():

@@ -376,15 +376,15 @@ TRANSPORT->
 LEVEL 2"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 1349.0
-offset_top = 53.0
-offset_right = 1453.0
-offset_bottom = 63.0
+offset_left = 1380.0
+offset_top = 54.0
+offset_right = 1484.0
+offset_bottom = 64.0
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
 theme_override_fonts/font = ExtResource("9_s7l8k")
 theme_override_font_sizes/font_size = 8
-text = "Careful traffic!"
+text = "Careful, traffic!"
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 2526.0
@@ -406,7 +406,7 @@ theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_colors/font_shadow_color = Color(4.62055e-06, 0.556203, 0.703519, 1)
 theme_override_fonts/font = ExtResource("9_s7l8k")
 theme_override_font_sizes/font_size = 8
-text = "Carefull traffic!"
+text = "Careful, traffic!"
 
 [node name="Label5" type="Label" parent="."]
 offset_left = 2573.0
