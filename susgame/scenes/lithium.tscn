@@ -52,9 +52,7 @@ script = ExtResource("1_kcrd4")
 position = Vector2(11, -4)
 scale = Vector2(1.10938, 1.10625)
 sprite_frames = SubResource("SpriteFrames_4od85")
-animation = &"anger"
 autoplay = "default"
-frame_progress = 0.947659
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1

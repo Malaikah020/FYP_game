@@ -54,7 +54,7 @@ scale = Vector2(0.70469, 0.59881)
 sprite_frames = SubResource("SpriteFrames_ngobx")
 animation = &"anger"
 autoplay = "default"
-frame_progress = 0.578352
+frame_progress = 0.0108941
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
