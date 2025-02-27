@@ -636,7 +636,7 @@ position = Vector2(331, -78)
 position = Vector2(283, -136)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(6.10352e-05, -46.1423)
+position = Vector2(781.217, 97.3002)
 
 [node name="pistons" type="Node" parent="."]
 
