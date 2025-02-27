@@ -36,6 +36,7 @@ texture_filter = 1
 position = Vector2(-1, 5.5)
 scale = Vector2(0.21, 0.2175)
 sprite_frames = SubResource("SpriteFrames_wsday")
+autoplay = "default"
 frame_progress = 0.300126
 flip_h = true
 
