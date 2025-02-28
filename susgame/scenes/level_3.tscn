@@ -766,7 +766,7 @@ position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_4sc66")
 
 [node name="conveyor3" parent="." instance=ExtResource("9_qh1yt")]
-position = Vector2(3448, 136)
+position = Vector2(3448, 137)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="conveyor3"]
 constant_linear_velocity = Vector2(100, 0)

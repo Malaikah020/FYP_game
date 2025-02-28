@@ -109,7 +109,7 @@ func _ready():
 
 	level_character[1] = ["You found me! My name is Lithium Lily, I am mined here, and used to make rechargeable batteries for people's electronic devices."]
 	level_character[2] = ["Yay, I've been found! Nice to meet you, I'm Copper Cornelius! I get taken, and used in electronic devices to transmit power"]
-	level_character[3] = ["Oh hi, you found me! Call me Indiana Indium, manufacturers used me all the time to build electrical circuits. I'm super useful!"]
+	level_character[3] = ["Oh hi, you found me! Call me Indiana Indium, manufacturers use me all the time to build electrical circuits. I'm super useful!"]
 	level_character[4] = ["Yureka, someone found me! Sandra Silicon, at your service. I'm multifunctional, used in electrical circuits and on the pretty parts of devices"]
 	level_character[5] = ["You are the champion! It's me, Freddie Mercury! I'm an iconic sing- I mean, an element used in electronic screens that will rock you"]
 	
