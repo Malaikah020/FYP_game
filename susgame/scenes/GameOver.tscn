@@ -25,9 +25,9 @@ texture = ExtResource("2_4y7cw")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = -128.0
-offset_top = -28.0
+offset_top = -6.0
 offset_right = 158.0
-offset_bottom = 73.0
+offset_bottom = 95.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.973535, 0.973535, 0.973535, 1)
 theme_override_fonts/font = ExtResource("1_vb38y")
@@ -41,9 +41,9 @@ text = "    CONGRATS!!!
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = -85.0
-offset_top = 36.0
+offset_top = 46.0
 offset_right = 85.0
-offset_bottom = 60.0
+offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("1_vb38y")
 text = "Restart Game"
 
