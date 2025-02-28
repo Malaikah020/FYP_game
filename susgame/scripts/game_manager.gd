@@ -107,11 +107,11 @@ func _ready():
 	level_facts[4] = lv4_facts
 	level_facts[5] = lv5_facts
 
-	level_character[1] = ["You found LITHIUM! An element used to make rechargeable batteries."]
-	level_character[2] = ["You found COPPER! An element used for power transmission in electronic devices"]
-	level_character[3] = ["You found INDIUM! An element used to build electrical circuits"]
-	level_character[4] = ["You found SILICON! An element used in electrical circuits, as well as to make external features on devices"]
-	level_character[5] = ["You found MERCURY! An element used in electronic screens"]
+	level_character[1] = ["You found me! My name is Lithium Lily, I am mined here, and used to make rechargeable batteries for people's electronic devices."]
+	level_character[2] = ["Yay, I've been found! Nice to meet you, I'm Copper Cornelius! I get taken, and used in electronic devices to transmit power"]
+	level_character[3] = ["Oh hi, you found me! Call me Indiana Indium, manufacturers use me all the time to build electrical circuits. I'm super useful!"]
+	level_character[4] = ["Yureka, someone found me! Sandra Silicon, at your service. I'm multifunctional, used in electrical circuits and on the pretty parts of devices"]
+	level_character[5] = ["You are the champion! It's me, Freddie Mercury! I'm an iconic sing- I mean, an element used in electronic screens that will rock you"]
 	
 	# Debugging: Check if ScoreLabel exists
 	if score_label == null:
